@@ -32,6 +32,12 @@ export function Leaderboard() {
     <main className="scoreboard-shell">
       {/* ── Minimal Brand Header ─────────────────────────── */}
       <header className="minimal-brand-header">
+        <div className="top-right-status">
+          <span className="live-pill" aria-label="Live updates active">
+            <i className="live-indicator" /> Live
+          </span>
+        </div>
+
         <a
           href="https://urianpublication.com"
           target="_blank"
@@ -48,11 +54,6 @@ export function Leaderboard() {
           />
         </a>
         <h1 className="minimal-brand-caption">The Urian Publication Special Coverage</h1>
-        <div className="minimal-brand-status">
-          <span className="live-pill" aria-label="Live updates active">
-            <i className="live-indicator" /> Live
-          </span>
-        </div>
       </header>
 
       {/* ── Standing Podium Section ──────────────────────── */}
