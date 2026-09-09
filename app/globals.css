@@ -10,19 +10,19 @@
 
 :root {
   color-scheme: dark;
-  --background: #060913;
+  --background: #09202f;
   --foreground: #f1f5f9;
-  --card: #0b1120;
-  --card-elevated: #10182b;
+  --card: #081824;
+  --card-elevated: #0e2434;
   --muted: #94a3b8;
-  --border: rgba(59, 130, 246, 0.16);
+  --border: rgba(22, 134, 184, 0.28);
   --line: rgba(255, 255, 255, 0.08);
   
-  /* Electric Blue Contrast */
-  --primary: #3b82f6;
-  --primary-bright: #60a5fa;
-  --primary-deep: #1d4ed8;
-  --primary-glow: rgba(59, 130, 246, 0.25);
+  /* Urian Publication Ocean Blue Contrast (#1686b8) */
+  --primary: #1686b8;
+  --primary-bright: #38bdf8;
+  --primary-deep: #0f5a7d;
+  --primary-glow: rgba(22, 134, 184, 0.3);
   
   /* Natural Typography */
   --font-natural: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -65,7 +65,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Ambient Dark Lighting */
+/* Ambient #1686b8 Ocean Lighting */
 body::before {
   content: '';
   position: fixed;
@@ -73,10 +73,10 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background: 
-    radial-gradient(1100px 500px at 50% -80px, rgba(37, 99, 235, 0.18), transparent 75%),
-    radial-gradient(900px 500px at 50% 100%, rgba(30, 64, 175, 0.14), transparent 75%),
-    radial-gradient(500px 500px at 0% 45%, rgba(59, 130, 246, 0.05), transparent 60%),
-    radial-gradient(500px 500px at 100% 55%, rgba(59, 130, 246, 0.05), transparent 60%);
+    radial-gradient(1200px 600px at 50% -80px, rgba(22, 134, 184, 0.35), transparent 75%),
+    radial-gradient(900px 600px at 50% 100%, rgba(15, 90, 125, 0.3), transparent 75%),
+    radial-gradient(600px 600px at 0% 45%, rgba(22, 134, 184, 0.12), transparent 60%),
+    radial-gradient(600px 600px at 100% 55%, rgba(22, 134, 184, 0.12), transparent 60%);
 }
 
 button {
