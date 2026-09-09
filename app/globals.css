@@ -1,0 +1,1188 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS — SLEEK DARK MODE & NATURAL MODERN SANS-SERIF
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: dark;
+  --background: #060913;
+  --foreground: #f1f5f9;
+  --card: #0b1120;
+  --card-elevated: #10182b;
+  --muted: #94a3b8;
+  --border: rgba(59, 130, 246, 0.16);
+  --line: rgba(255, 255, 255, 0.08);
+  
+  /* Electric Blue Contrast */
+  --primary: #3b82f6;
+  --primary-bright: #60a5fa;
+  --primary-deep: #1d4ed8;
+  --primary-glow: rgba(59, 130, 246, 0.25);
+  
+  /* Natural Typography */
+  --font-natural: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: #ffffff;
+  --color-muted-foreground: var(--muted);
+  --font-sans: var(--font-natural);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--background);
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-natural);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient Blue Contrast Lighting */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(1100px 500px at 50% -80px, rgba(37, 99, 235, 0.16), transparent 75%),
+    radial-gradient(900px 500px at 50% 100%, rgba(30, 64, 175, 0.12), transparent 75%),
+    radial-gradient(500px 500px at 0% 45%, rgba(59, 130, 246, 0.05), transparent 60%),
+    radial-gradient(500px 500px at 100% 55%, rgba(59, 130, 246, 0.05), transparent 60%);
+}
+
+button {
+  font: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(6, 9, 19, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.25);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes liveGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7), 0 0 10px rgba(59, 130, 246, 0.8);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 6px rgba(59, 130, 246, 0), 0 0 14px rgba(59, 130, 246, 0.4);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes crownBob {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+@keyframes shineSwipe {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  28%, 100% {
+    transform: translateX(260%) skewX(-20deg);
+  }
+}
+
+@keyframes bannerShine {
+  0% {
+    transform: translateX(-100%);
+  }
+  20%, 100% {
+    transform: translateX(200%);
+  }
+}
+
+@keyframes podiumEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rowEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LAYOUT CONTAINER
+   ═══════════════════════════════════════════════════════════ */
+
+.scoreboard-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1040px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO HEADER
+   ═══════════════════════════════════════════════════════════ */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-title-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--primary-bright);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 4px 0 0;
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ffffff 40%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 14px rgba(59, 130, 246, 0.2));
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Subtle Refresh Button */
+.refresh-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 13px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(59, 130, 246, 0.28);
+  border-radius: 999px;
+  color: #e2e8f0;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.refresh-btn:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.16);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #ffffff;
+}
+
+.refresh-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.refresh-svg {
+  width: 13px;
+  height: 13px;
+}
+
+.refresh-svg.is-spinning {
+  animation: spin 1s linear infinite;
+}
+
+.live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 13px;
+  background: rgba(30, 58, 138, 0.35);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: 999px;
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.15);
+}
+
+.live-indicator {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #3b82f6;
+  animation: liveGlow 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   STANDING PODIUM (NO TOP TITLE, TOP CONTENDERS BELOW)
+   ═══════════════════════════════════════════════════════════ */
+
+.podium-section {
+  padding: 32px 0 40px;
+}
+
+.podium-stage-container {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.podium-grid {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.podium-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: podiumEntrance 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: var(--podium-delay, 0ms);
+  flex: 1 1 0;
+  max-width: 220px;
+}
+
+/* 1st place stands highest and center */
+.podium-card-1 {
+  order: 2;
+  z-index: 3;
+}
+.podium-card-2 {
+  order: 1;
+  z-index: 2;
+}
+.podium-card-3 {
+  order: 3;
+  z-index: 2;
+}
+
+/* Crown for 1st Place */
+.podium-crown {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.crown-svg {
+  width: 36px;
+  height: 36px;
+  color: #facc15;
+  filter: drop-shadow(0 0 16px rgba(250, 204, 21, 0.85)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  animation: crownBob 3s ease-in-out infinite;
+}
+
+/* Avatar with Illuminated Glow Rings */
+.podium-avatar-wrapper {
+  position: relative;
+  padding: 4px;
+  border-radius: 50%;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background: #0b1120;
+}
+
+.podium-avatar-wrapper:hover {
+  transform: scale(1.08);
+}
+
+.podium-ring-gold {
+  box-shadow: 
+    0 0 0 4px #facc15,
+    0 0 35px rgba(250, 204, 21, 0.6),
+    0 0 70px rgba(234, 179, 8, 0.3);
+}
+
+.podium-ring-silver {
+  box-shadow: 
+    0 0 0 3px #cbd5e1,
+    0 0 28px rgba(203, 213, 225, 0.45),
+    0 0 50px rgba(148, 163, 184, 0.2);
+}
+
+.podium-ring-bronze {
+  box-shadow: 
+    0 0 0 3px #f59e0b,
+    0 0 28px rgba(245, 158, 11, 0.5),
+    0 0 50px rgba(217, 119, 6, 0.2);
+}
+
+.podium-avatar-wrapper .crew-logo {
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Rank pill overlapping bottom of avatar */
+.podium-rank-badge {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  border: 2px solid #ffffff;
+}
+
+.podium-pill-gold {
+  background: linear-gradient(135deg, #fef08a, #eab308);
+  color: #422006;
+}
+
+.podium-pill-silver {
+  background: linear-gradient(135deg, #ffffff, #94a3b8);
+  color: #0f172a;
+}
+
+.podium-pill-bronze {
+  background: linear-gradient(135deg, #fed7aa, #ea580c);
+  color: #431407;
+}
+
+/* College Name & Info */
+.podium-info {
+  margin-top: 16px;
+}
+
+.podium-college-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.podium-card-1 .podium-college-title {
+  font-size: 23px;
+  color: #fef08a;
+  text-shadow: 0 0 20px rgba(250, 204, 21, 0.35);
+}
+
+.podium-college-subtitle {
+  margin: 3px 0 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  max-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Total Medals Box */
+.podium-total-box {
+  margin: 10px 0 6px;
+}
+
+.podium-total-number {
+  display: block;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.3);
+}
+
+.podium-total-caption {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+/* Breakdown Mini-Stats */
+.podium-breakdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.podium-mini-stat {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.podium-mini-stat .stat-icon {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.podium-mini-stat.gold { color: #fde047; }
+.podium-mini-stat.silver { color: #e2e8f0; }
+.podium-mini-stat.bronze { color: #fdba74; }
+
+/* ── THE SOLID STANDING PEDESTAL PILLARS ─────────────────── */
+
+.podium-pillar {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px 18px 0 0;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.podium-pillar:hover {
+  filter: brightness(1.06);
+}
+
+.podium-pillar-cap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.podium-pillar-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.podium-pillar-number {
+  display: block;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.95;
+}
+
+/* 1st Place Pedestal Pillar (Gold) */
+.podium-pedestal-1st {
+  height: 155px;
+}
+
+.podium-pillar-gold {
+  background: linear-gradient(180deg, #fef08a 0%, #facc15 25%, #eab308 65%, #a16207 100%);
+  color: #422006;
+  border-top: 2px solid #ffffff;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 0 50px rgba(250, 204, 21, 0.35),
+    0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.podium-pillar-gold .podium-pillar-number {
+  color: #422006;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* 2nd Place Pedestal Pillar (Silver) */
+.podium-pedestal-2nd {
+  height: 115px;
+}
+
+.podium-pillar-silver {
+  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 30%, #cbd5e1 65%, #64748b 100%);
+  color: #0f172a;
+  border-top: 2px solid #ffffff;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 0 40px rgba(203, 213, 225, 0.25),
+    0 12px 28px rgba(0, 0, 0, 0.7);
+}
+
+.podium-pillar-silver .podium-pillar-number {
+  color: #0f172a;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+/* 3rd Place Pedestal Pillar (Bronze) */
+.podium-pedestal-3rd {
+  height: 85px;
+}
+
+.podium-pillar-bronze {
+  background: linear-gradient(180deg, #fed7aa 0%, #fb923c 25%, #d97706 65%, #78350f 100%);
+  color: #431407;
+  border-top: 2px solid #ffffff;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 0 40px rgba(217, 119, 6, 0.25),
+    0 10px 24px rgba(0, 0, 0, 0.7);
+}
+
+.podium-pillar-bronze .podium-pillar-number {
+  color: #431407;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Dynamic Gloss Shine Sweep */
+.podium-pillar-shine {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.podium-pillar-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+  animation: shineSwipe 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation-delay: var(--podium-delay, 0ms);
+}
+
+/* Grounding Platform Stage Floor */
+.podium-stage-floor {
+  position: relative;
+  z-index: 1;
+  height: 14px;
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  border-top: 2px solid #3b82f6;
+  border-radius: 4px;
+  box-shadow: 
+    0 0 30px rgba(59, 130, 246, 0.4),
+    0 10px 25px rgba(0, 0, 0, 0.8);
+  margin-top: -1px;
+}
+
+/* "Top Contenders" label below the podium floor */
+.podium-bottom-caption {
+  text-align: center;
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Skeletons */
+.podium-pillar-skeleton {
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LEADERBOARD SECTION CARD
+   ═══════════════════════════════════════════════════════════ */
+
+.leaderboard-card {
+  background: linear-gradient(180deg, #090e1c 0%, #070b16 100%);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(59, 130, 246, 0.08);
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-heading h2 {
+  margin: 4px 0 0;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SOLID BROADCAST BANNER ROWS & PIXEL-ALIGNED HEADER
+   ═══════════════════════════════════════════════════════════ */
+
+.table-container {
+  padding: 16px 24px 28px;
+}
+
+/* Column Header Row — Pixel-aligned directly with banner row slots */
+.table-header-row {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  padding: 0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.th-rank-col {
+  width: 50px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.th-college-col {
+  flex: 1;
+  padding-left: 80px;
+}
+
+/* Header Scoreboard Container — Matches the banner score block */
+.th-scores-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 14px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.th-score-cell-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.th-score-sep {
+  width: 1px;
+  height: 18px;
+  background: transparent;
+}
+
+.th-score-sep-major {
+  width: 1px;
+  margin: 0 2px;
+}
+
+/* Compact Medal Icon Slot */
+.th-medal-slot {
+  width: 52px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: default;
+}
+
+.th-medal-emoji {
+  font-size: 21px;
+  line-height: 1;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+  transition: transform 0.2s ease;
+}
+
+.th-medal-slot:hover .th-medal-emoji {
+  transform: scale(1.18);
+}
+
+/* Banner Rows List */
+.broadcast-rows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* The Solid Colored Banner Row */
+.broadcast-row-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 58px;
+  border-radius: 12px;
+  background: var(--college-color);
+  box-shadow: 
+    0 4px 18px rgba(0, 0, 0, 0.45),
+    0 1px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, filter 0.2s ease;
+  animation: rowEntrance 0.4s ease both;
+  animation-delay: calc(var(--row-index, 0) * 40ms);
+}
+
+.broadcast-row-banner:hover {
+  transform: translateY(-2px) scale(1.006);
+  filter: brightness(1.08);
+  box-shadow: 
+    0 8px 26px rgba(0, 0, 0, 0.6),
+    0 0 25px var(--college-color);
+}
+
+/* Rank Slot */
+.banner-rank-slot {
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 3;
+}
+
+.banner-rank-badge {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.banner-rank-badge.rank-1 {
+  background: #facc15;
+  color: #422006;
+  border: 2px solid #ffffff;
+}
+.banner-rank-badge.rank-2 {
+  background: #e2e8f0;
+  color: #0f172a;
+  border: 2px solid #ffffff;
+}
+.banner-rank-badge.rank-3 {
+  background: #fb923c;
+  color: #431407;
+  border: 2px solid #ffffff;
+}
+.banner-rank-badge.rank-other {
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Angled White Tab with College Logo */
+.banner-logo-tab {
+  width: 68px;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: skewX(-14deg);
+  margin-left: -6px;
+  margin-right: 14px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.banner-logo-tab .crew-logo {
+  transform: skewX(14deg);
+  object-fit: contain;
+}
+
+.banner-logo-tab .crew-initials {
+  transform: skewX(14deg);
+}
+
+/* Solid Colored Banner Body */
+.banner-body {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.banner-college-text {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.banner-college-code {
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.banner-college-fullname {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+
+/* Gloss Sweep across Banner */
+.banner-shine-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: bannerShine 6s ease-in-out infinite;
+  animation-delay: calc(var(--row-index, 0) * 0.4s);
+}
+
+/* Scoreboard Slots (Right Side) — Aligned exactly with header */
+.banner-scores-group {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(4px);
+  padding: 0 14px;
+  margin-left: auto;
+  flex-shrink: 0;
+  z-index: 2;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.score-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  padding: 0 2px;
+}
+
+.score-num {
+  font-size: 21px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.score-gold .score-num { color: #fde047; }
+.score-silver .score-num { color: #f1f5f9; }
+.score-bronze .score-num { color: #fdba74; }
+.score-total .total-bold { 
+  color: #ffffff; 
+  font-size: 22px;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.score-slot.score-highlight {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 6px;
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.score-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.score-divider-major {
+  height: 32px;
+  background: rgba(255, 255, 255, 0.35);
+  margin: 0 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EVENT RESULTS DRAWER
+   ═══════════════════════════════════════════════════════════ */
+
+.event-results {
+  border-top: 1px solid var(--line);
+}
+
+.event-results summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 28px;
+  color: var(--primary-bright);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.event-results summary:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.event-results summary span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.event-list {
+  padding: 0 28px 20px;
+}
+
+.event-result {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.event-result strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.event-medals-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.result-gold { color: #fde047; }
+.result-silver { color: #cbd5e1; }
+.result-bronze { color: #fb923c; }
+.empty-events { color: var(--muted); font-size: 13px; }
+
+/* ═══════════════════════════════════════════════════════════
+   ERROR STATES
+   ═══════════════════════════════════════════════════════════ */
+
+.error-state {
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.error-state strong {
+  display: block;
+  font-size: 18px;
+  color: #f87171;
+  margin-bottom: 8px;
+}
+
+.error-state p {
+  color: var(--muted);
+  margin: 0 0 20px;
+  font-size: 14px;
+}
+
+.error-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.error-actions button,
+.error-actions a {
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.error-actions button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.error-actions a {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--foreground);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 28px;
+  margin-top: 36px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.footer-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-meta a {
+  color: var(--primary-bright);
+  text-decoration: none;
+}
+
+.syncing-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: liveGlow 1.5s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE MEDIA QUERIES
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .scoreboard-shell {
+    padding: 24px 14px 40px;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .podium-grid {
+    gap: 8px;
+  }
+
+  .podium-card {
+    max-width: none;
+  }
+
+  .podium-pedestal-1st { height: 120px; }
+  .podium-pedestal-2nd { height: 90px; }
+  .podium-pedestal-3rd { height: 70px; }
+
+  .banner-college-fullname {
+    display: none;
+  }
+
+  .th-college-col {
+    padding-left: 56px;
+  }
+
+  .score-slot {
+    width: 42px;
+  }
+
+  .th-medal-btn {
+    width: 42px;
+  }
+
+  .score-num {
+    font-size: 17px;
+  }
+
+  .score-total .total-bold {
+    font-size: 18px;
+  }
+
+  .table-container {
+    padding: 14px 12px 20px;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
