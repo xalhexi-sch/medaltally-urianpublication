@@ -30,47 +30,25 @@ export function Leaderboard() {
 
   return (
     <main className="scoreboard-shell">
-      {/* ── Urian Publication Top Brand Bar ─────────────── */}
-      <nav className="brand-header-bar" aria-label="Official Publication Header">
+      {/* ── Minimal Brand Header ─────────────────────────── */}
+      <header className="minimal-brand-header">
         <a
           href="https://urianpublication.com"
           target="_blank"
           rel="noreferrer"
-          className="brand-logo-link"
-          title="Visit Urian Publication Official Website"
+          className="minimal-brand-link"
+          title="Visit Urian Publication Main Website"
         >
           <img
-            src="/urian-pub-logo.png"
-            alt="Urian Publication Logo"
-            className="brand-icon-img"
-            width={38}
-            height={38}
+            src="/udays-125-header.png"
+            alt="125th UDAYS — Urian Publication"
+            className="minimal-brand-logo"
+            width={420}
+            height={158}
           />
-          <div className="brand-text-group">
-            <span className="brand-title">Urian Publication</span>
-            <span className="brand-subtitle">Official Student Media</span>
-          </div>
         </a>
-
-        <a
-          href="https://urianpublication.com"
-          target="_blank"
-          rel="noreferrer"
-          className="brand-site-badge"
-        >
-          urianpublication.com ↗
-        </a>
-      </nav>
-
-      {/* ── Hero Header ─────────────────────────────────── */}
-      <header className="hero">
-        <div className="hero-title-area">
-          <p className="eyebrow">125th University Days</p>
-          <h1>Medal Tally</h1>
-        </div>
-
-        {/* Status */}
-        <div className="hero-actions">
+        <h1 className="minimal-brand-caption">The Urian Publication Special Coverage</h1>
+        <div className="minimal-brand-status">
           <span className="live-pill" aria-label="Live updates active">
             <i className="live-indicator" /> Live
           </span>
