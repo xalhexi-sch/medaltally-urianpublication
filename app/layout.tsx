@@ -25,9 +25,12 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   icons: {
-    icon: '/icon.svg',
-    shortcut: '/icon.svg',
-    apple: '/apple-icon.png',
+    icon: [
+      { url: '/urian-pub-logo.png', type: 'image/png' },
+      { url: '/favicon.ico' },
+    ],
+    shortcut: '/urian-pub-logo.png',
+    apple: '/urian-pub-logo.png',
   },
 }
 

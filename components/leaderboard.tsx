@@ -30,6 +30,38 @@ export function Leaderboard() {
 
   return (
     <main className="scoreboard-shell">
+      {/* ── Urian Publication Top Brand Bar ─────────────── */}
+      <nav className="brand-header-bar" aria-label="Official Publication Header">
+        <a
+          href="https://urianpublication.com"
+          target="_blank"
+          rel="noreferrer"
+          className="brand-logo-link"
+          title="Visit Urian Publication Official Website"
+        >
+          <img
+            src="/urian-pub-logo.png"
+            alt="Urian Publication Logo"
+            className="brand-icon-img"
+            width={38}
+            height={38}
+          />
+          <div className="brand-text-group">
+            <span className="brand-title">Urian Publication</span>
+            <span className="brand-subtitle">Official Student Media</span>
+          </div>
+        </a>
+
+        <a
+          href="https://urianpublication.com"
+          target="_blank"
+          rel="noreferrer"
+          className="brand-site-badge"
+        >
+          urianpublication.com ↗
+        </a>
+      </nav>
+
       {/* ── Hero Header ─────────────────────────────────── */}
       <header className="hero">
         <div className="hero-title-area">
@@ -101,22 +133,39 @@ export function Leaderboard() {
 
       {/* ── Footer ────────────────────────────────────────── */}
       <footer>
-        <div className="footer-meta">
-          <span>
-            Source:{' '}
-            <a href={SOURCE_URL} target="_blank" rel="noreferrer">
-              Foundation Anniversary
-            </a>
-          </span>
-          <span aria-live="polite">
-            {syncing ? (
-              <>
-                <i className="syncing-dot" /> Syncing…
-              </>
-            ) : (
-              <>Updated {timeLabel}</>
-            )}
-          </span>
+        <div className="footer-content">
+          <div className="footer-brand">
+            <img
+              src="/urian-pub-logo.png"
+              alt="Urian Publication Logo"
+              width={22}
+              height={22}
+              className="footer-brand-icon"
+            />
+            <span>
+              Official Coverage by{' '}
+              <a href="https://urianpublication.com" target="_blank" rel="noreferrer">
+                Urian Publication
+              </a>
+            </span>
+          </div>
+          <div className="footer-meta">
+            <span>
+              Source:{' '}
+              <a href={SOURCE_URL} target="_blank" rel="noreferrer">
+                Foundation Anniversary
+              </a>
+            </span>
+            <span aria-live="polite">
+              {syncing ? (
+                <>
+                  <i className="syncing-dot" /> Syncing…
+                </>
+              ) : (
+                <>Updated {timeLabel}</>
+              )}
+            </span>
+          </div>
         </div>
       </footer>
     </main>
