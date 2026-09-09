@@ -347,19 +347,20 @@ button {
 }
 
 /* Crown for 1st Place */
+/* Crown for 1st Place */
 .podium-crown {
-  height: 36px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .crown-svg {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   color: #facc15;
-  filter: drop-shadow(0 0 16px rgba(250, 204, 21, 0.85)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 0 14px rgba(250, 204, 21, 0.85)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
   animation: crownBob 3s ease-in-out infinite;
 }
 
@@ -373,28 +374,28 @@ button {
 }
 
 .podium-avatar-wrapper:hover {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 .podium-ring-gold {
   box-shadow: 
     0 0 0 4px #facc15,
-    0 0 35px rgba(250, 204, 21, 0.6),
-    0 0 70px rgba(234, 179, 8, 0.3);
+    0 0 30px rgba(250, 204, 21, 0.55),
+    0 0 60px rgba(234, 179, 8, 0.25);
 }
 
 .podium-ring-silver {
   box-shadow: 
     0 0 0 3px #cbd5e1,
-    0 0 28px rgba(203, 213, 225, 0.45),
-    0 0 50px rgba(148, 163, 184, 0.2);
+    0 0 24px rgba(203, 213, 225, 0.4),
+    0 0 45px rgba(148, 163, 184, 0.18);
 }
 
 .podium-ring-bronze {
   box-shadow: 
     0 0 0 3px #f59e0b,
-    0 0 28px rgba(245, 158, 11, 0.5),
-    0 0 50px rgba(217, 119, 6, 0.2);
+    0 0 24px rgba(245, 158, 11, 0.45),
+    0 0 45px rgba(217, 119, 6, 0.18);
 }
 
 .podium-avatar-wrapper .crew-logo {
@@ -406,17 +407,17 @@ button {
 /* Rank pill overlapping bottom of avatar */
 .podium-rank-badge {
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 26px;
-  height: 26px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 800;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
   border: 2px solid #ffffff;
 }
 
@@ -435,29 +436,31 @@ button {
   color: #431407;
 }
 
-/* College Name & Info */
+/* College Name & Info above the block */
 .podium-info {
-  margin-top: 16px;
+  margin-top: 10px;
+  margin-bottom: 6px;
+  text-align: center;
 }
 
 .podium-college-title {
   margin: 0;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
   letter-spacing: -0.01em;
   color: #ffffff;
 }
 
 .podium-card-1 .podium-college-title {
-  font-size: 23px;
-  color: #fef08a;
-  text-shadow: 0 0 20px rgba(250, 204, 21, 0.35);
+  font-size: 22px;
+  color: #ffffff;
+  text-shadow: 0 0 16px rgba(250, 204, 21, 0.4);
 }
 
 .podium-college-subtitle {
-  margin: 4px auto 0;
+  margin: 2px auto 0;
   font-size: 11px;
-  line-height: 1.25;
+  line-height: 1.2;
   font-weight: 500;
   color: var(--muted);
   max-width: 140px;
@@ -469,59 +472,19 @@ button {
   text-align: center;
 }
 
-/* Total Medals Box */
-.podium-total-box {
-  margin: 10px 0 6px;
+/* ── THE SOLID PODIUM BLOCKS (DATA CONTAINERS) ────────────── */
+
+.podium-block-1st {
+  height: 125px;
 }
 
-.podium-total-number {
-  display: block;
-  font-size: clamp(2rem, 4vw, 2.7rem);
-  font-weight: 800;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-  color: #ffffff;
-  text-shadow: 0 0 24px rgba(255, 255, 255, 0.3);
+.podium-block-2nd {
+  height: 102px;
 }
 
-.podium-total-caption {
-  display: block;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-top: 3px;
+.podium-block-3rd {
+  height: 88px;
 }
-
-/* Breakdown Mini-Stats */
-.podium-breakdown {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.podium-mini-stat {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  font-size: 13px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
-
-.podium-mini-stat .stat-icon {
-  font-size: 12px;
-  line-height: 1;
-}
-
-.podium-mini-stat.gold { color: #fde047; }
-.podium-mini-stat.silver { color: #e2e8f0; }
-.podium-mini-stat.bronze { color: #fdba74; }
-
-/* ── THE SOLID STANDING PEDESTAL PILLARS ─────────────────── */
 
 .podium-pillar {
   width: 100%;
@@ -529,100 +492,130 @@ button {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border-radius: 18px 18px 0 0;
   transition: transform 0.2s ease, filter 0.2s ease;
+  margin-top: 6px;
 }
 
 .podium-pillar:hover {
-  filter: brightness(1.06);
+  filter: brightness(1.05);
 }
 
-.podium-pillar-cap {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.85);
-}
-
-.podium-pillar-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-
-.podium-pillar-number {
-  display: block;
-  font-size: 38px;
-  font-weight: 900;
-  line-height: 1;
-  opacity: 0.95;
-}
-
-/* 1st Place Pedestal Pillar (Gold) */
-.podium-pedestal-1st {
-  height: 155px;
-}
-
+/* 1st Place Block (Gold) */
 .podium-pillar-gold {
-  background: linear-gradient(180deg, #fef08a 0%, #facc15 25%, #eab308 65%, #a16207 100%);
+  background: linear-gradient(180deg, #fef08a 0%, #facc15 45%, #ca8a04 100%);
   color: #422006;
-  border-top: 2px solid #ffffff;
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 0 50px rgba(250, 204, 21, 0.35),
-    0 15px 35px rgba(0, 0, 0, 0.7);
-}
-
-.podium-pillar-gold .podium-pillar-number {
-  color: #422006;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-}
-
-/* 2nd Place Pedestal Pillar (Silver) */
-.podium-pedestal-2nd {
-  height: 115px;
-}
-
-.podium-pillar-silver {
-  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 30%, #cbd5e1 65%, #64748b 100%);
-  color: #0f172a;
   border-top: 2px solid #ffffff;
   border-left: 1px solid rgba(255, 255, 255, 0.4);
   border-right: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 
-    0 0 40px rgba(203, 213, 225, 0.25),
-    0 12px 28px rgba(0, 0, 0, 0.7);
+    0 0 35px rgba(250, 204, 21, 0.35),
+    0 10px 25px rgba(0, 0, 0, 0.6);
 }
 
-.podium-pillar-silver .podium-pillar-number {
+/* 2nd Place Block (Silver) */
+.podium-pillar-silver {
+  background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 45%, #94a3b8 100%);
+  color: #0f172a;
+  border-top: 2px solid #ffffff;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 0 30px rgba(203, 213, 225, 0.25),
+    0 8px 22px rgba(0, 0, 0, 0.6);
+}
+
+/* 3rd Place Block (Bronze) */
+.podium-pillar-bronze {
+  background: linear-gradient(180deg, #fed7aa 0%, #fb923c 45%, #c2410c 100%);
+  color: #431407;
+  border-top: 2px solid #ffffff;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 0 30px rgba(217, 119, 6, 0.25),
+    0 8px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Data Body inside Podium Block */
+.podium-data-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 6px;
+  z-index: 2;
+}
+
+.podium-pillar-gold .podium-total-number {
+  font-size: clamp(2.4rem, 4.2vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #1e1103;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.podium-pillar-silver .podium-total-number {
+  font-size: clamp(2.2rem, 3.8vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1;
   color: #0f172a;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
-/* 3rd Place Pedestal Pillar (Bronze) */
-.podium-pedestal-3rd {
-  height: 85px;
+.podium-pillar-bronze .podium-total-number {
+  font-size: clamp(2rem, 3.6vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #381005;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
-.podium-pillar-bronze {
-  background: linear-gradient(180deg, #fed7aa 0%, #fb923c 25%, #d97706 65%, #78350f 100%);
-  color: #431407;
-  border-top: 2px solid #ffffff;
-  border-left: 1px solid rgba(255, 255, 255, 0.3);
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 0 40px rgba(217, 119, 6, 0.25),
-    0 10px 24px rgba(0, 0, 0, 0.7);
+.podium-total-caption {
+  display: block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 1px;
+  opacity: 0.9;
 }
 
-.podium-pillar-bronze .podium-pillar-number {
-  color: #431407;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+.podium-pillar-gold .podium-total-caption { color: #432004; }
+.podium-pillar-silver .podium-total-caption { color: #1e293b; }
+.podium-pillar-bronze .podium-total-caption { color: #431407; }
+
+/* Translucent Dark Bottom Strip inside Podium Block */
+.podium-data-strip {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  font-size: 13px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.strip-stat {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.strip-stat .stat-icon {
+  font-size: 12px;
+  line-height: 1;
 }
 
 /* Dynamic Gloss Shine Sweep */
@@ -640,7 +633,7 @@ button {
   left: 0;
   width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
   animation: shineSwipe 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   animation-delay: var(--podium-delay, 0ms);
 }
@@ -649,24 +642,37 @@ button {
 .podium-stage-floor {
   position: relative;
   z-index: 1;
-  height: 14px;
+  height: 10px;
   background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
   border-top: 2px solid #3b82f6;
   border-radius: 4px;
   box-shadow: 
-    0 0 30px rgba(59, 130, 246, 0.4),
-    0 10px 25px rgba(0, 0, 0, 0.8);
+    0 0 25px rgba(59, 130, 246, 0.4),
+    0 8px 20px rgba(0, 0, 0, 0.8);
   margin-top: -1px;
 }
 
-/* "Top Contenders" label below the podium floor */
-.podium-bottom-caption {
-  text-align: center;
-  margin: 14px 0 0;
-  font-size: 13px;
-  font-weight: 600;
+/* Bottom Label with lines */
+.podium-bottom-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.label-line {
+  flex: 1;
+  max-width: 100px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.label-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   color: #94a3b8;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
@@ -1196,9 +1202,10 @@ footer {
     max-width: none;
   }
 
-  .podium-pedestal-1st { height: 120px; }
-  .podium-pedestal-2nd { height: 90px; }
-  .podium-pedestal-3rd { height: 70px; }
+  .podium-block-1st { height: 110px; }
+  .podium-block-2nd { height: 92px; }
+  .podium-block-3rd { height: 80px; }
+  .podium-data-strip { gap: 6px; font-size: 11px; }
 
   .banner-college-fullname {
     display: none;

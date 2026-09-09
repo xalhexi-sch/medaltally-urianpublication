@@ -21,30 +21,27 @@ function PodiumCard({
 
   const config = {
     1: {
-      pedestalHeight: 'podium-pedestal-1st',
-      avatarSize: '2xl' as const,
+      blockHeight: 'podium-block-1st',
+      avatarSize: 'xl' as const,
       crown: true,
       glowRing: 'podium-ring-gold',
       badgeClass: 'podium-pill-gold',
-      rankLabel: '1ST',
       pillarClass: 'podium-pillar-gold',
     },
     2: {
-      pedestalHeight: 'podium-pedestal-2nd',
-      avatarSize: 'xl' as const,
+      blockHeight: 'podium-block-2nd',
+      avatarSize: 'lg' as const,
       crown: false,
       glowRing: 'podium-ring-silver',
       badgeClass: 'podium-pill-silver',
-      rankLabel: '2ND',
       pillarClass: 'podium-pillar-silver',
     },
     3: {
-      pedestalHeight: 'podium-pedestal-3rd',
-      avatarSize: 'xl' as const,
+      blockHeight: 'podium-block-3rd',
+      avatarSize: 'lg' as const,
       crown: false,
       glowRing: 'podium-ring-bronze',
       badgeClass: 'podium-pill-bronze',
-      rankLabel: '3RD',
       pillarClass: 'podium-pillar-bronze',
     },
   }[place]
@@ -68,7 +65,7 @@ function PodiumCard({
         </div>
       )}
 
-      {/* Avatar with illuminated glowing ring */}
+      {/* Avatar with illuminated glowing ring & small rank badge */}
       <div className={`podium-avatar-wrapper ${config.glowRing}`}>
         <CrewLogo college={row.college} size={config.avatarSize} priority />
         <div className={`podium-rank-badge ${config.badgeClass}`}>
@@ -76,40 +73,32 @@ function PodiumCard({
         </div>
       </div>
 
-      {/* College Identification */}
+      {/* College Identification above the block */}
       <div className="podium-info">
         <h3 className="podium-college-title">{college.short}</h3>
         <p className="podium-college-subtitle">{college.name}</p>
       </div>
 
-      {/* Total Medals display */}
-      <div className="podium-total-box">
-        <span className="podium-total-number">{row.total}</span>
-        <span className="podium-total-caption">Total Medals</span>
-      </div>
+      {/* The Solid Podium Block containing the actual data */}
+      <div className={`podium-pillar ${config.pillarClass} ${config.blockHeight}`}>
+        <div className="podium-data-body">
+          <span className="podium-total-number">{row.total}</span>
+          <span className="podium-total-caption">TOTAL MEDALS</span>
+        </div>
 
-      {/* Breakdown mini-stats */}
-      <div className="podium-breakdown">
-        <div className="podium-mini-stat gold" title="Gold medals">
-          <span className="stat-icon">🥇</span>
-          <span className="stat-num">{row.gold}</span>
+        {/* Bottom Translucent Medal Breakdown Strip */}
+        <div className="podium-data-strip">
+          <span className="strip-stat gold">
+            <span className="stat-icon">🥇</span> {row.gold}
+          </span>
+          <span className="strip-stat silver">
+            <span className="stat-icon">🥈</span> {row.silver}
+          </span>
+          <span className="strip-stat bronze">
+            <span className="stat-icon">🥉</span> {row.bronze}
+          </span>
         </div>
-        <div className="podium-mini-stat silver" title="Silver medals">
-          <span className="stat-icon">🥈</span>
-          <span className="stat-num">{row.silver}</span>
-        </div>
-        <div className="podium-mini-stat bronze" title="Bronze medals">
-          <span className="stat-icon">🥉</span>
-          <span className="stat-num">{row.bronze}</span>
-        </div>
-      </div>
 
-      {/* The Solid Standing Pedestal Block */}
-      <div className={`podium-pillar ${config.pillarClass} ${config.pedestalHeight}`}>
-        <div className="podium-pillar-cap" />
-        <div className="podium-pillar-content">
-          <span className="podium-pillar-number">{place}</span>
-        </div>
         {/* Dynamic gloss sweep */}
         <div className="podium-pillar-shine" />
       </div>
@@ -118,12 +107,11 @@ function PodiumCard({
 }
 
 function PodiumSkeleton({ place }: { place: 1 | 2 | 3 }) {
-  const heights = { 1: 'podium-pedestal-1st', 2: 'podium-pedestal-2nd', 3: 'podium-pedestal-3rd' }
+  const heights = { 1: 'podium-block-1st', 2: 'podium-block-2nd', 3: 'podium-block-3rd' }
   return (
     <div className={`podium-card podium-card-${place}`}>
       <div className="skeleton podium-skel-avatar" />
       <div className="skeleton podium-skel-text" />
-      <div className="skeleton podium-skel-stats" />
       <div className={`podium-pillar podium-pillar-skeleton ${heights[place]}`} />
     </div>
   )
@@ -140,7 +128,11 @@ export function ChampionPodium({ topThree, loading }: ChampionPodiumProps) {
             <PodiumSkeleton place={3} />
           </div>
           <div className="podium-stage-floor" />
-          <p className="podium-bottom-caption">Top Contenders</p>
+          <div className="podium-bottom-label">
+            <span className="label-line" />
+            <span className="label-text">TOP CONTENDERS</span>
+            <span className="label-line" />
+          </div>
         </div>
       </section>
     )
@@ -169,7 +161,11 @@ export function ChampionPodium({ topThree, loading }: ChampionPodiumProps) {
         {/* Grounding stage base */}
         <div className="podium-stage-floor" />
         {/* Top Contenders label below podium */}
-        <p className="podium-bottom-caption">Top Contenders</p>
+        <div className="podium-bottom-label">
+          <span className="label-line" />
+          <span className="label-text">TOP CONTENDERS</span>
+          <span className="label-line" />
+        </div>
       </div>
     </section>
   )
