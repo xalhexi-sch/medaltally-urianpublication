@@ -872,8 +872,8 @@ button {
 .banner-logo-tab {
   width: 68px;
   height: 100%;
-  background: rgba(0, 0, 0, 0.35);
-  background: color-mix(in srgb, var(--college-color) 52%, #000000 48%);
+  background: rgba(0, 0, 0, 0.12);
+  background: color-mix(in srgb, var(--college-color) 82%, #000000 18%);
   border-right: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
@@ -881,7 +881,7 @@ button {
   transform: skewX(-14deg);
   margin-left: -6px;
   margin-right: 14px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.35);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
   z-index: 2;
 }
