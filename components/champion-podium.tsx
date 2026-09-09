@@ -128,11 +128,6 @@ export function ChampionPodium({ topThree, loading }: ChampionPodiumProps) {
             <PodiumSkeleton place={3} />
           </div>
           <div className="podium-stage-floor" />
-          <div className="podium-bottom-label">
-            <span className="label-line" />
-            <span className="label-text">TOP CONTENDERS</span>
-            <span className="label-line" />
-          </div>
         </div>
       </section>
     )
@@ -160,12 +155,6 @@ export function ChampionPodium({ topThree, loading }: ChampionPodiumProps) {
         </div>
         {/* Grounding stage base */}
         <div className="podium-stage-floor" />
-        {/* Top Contenders label below podium */}
-        <div className="podium-bottom-label">
-          <span className="label-line" />
-          <span className="label-text">TOP CONTENDERS</span>
-          <span className="label-line" />
-        </div>
       </div>
     </section>
   )
