@@ -688,11 +688,11 @@ button {
    ═══════════════════════════════════════════════════════════ */
 
 .leaderboard-card {
-  background: linear-gradient(180deg, #090e1c 0%, #070b16 100%);
-  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #09202f 0%, #061622 100%);
+  border: 1px solid rgba(22, 134, 184, 0.35);
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(59, 130, 246, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 60px rgba(22, 134, 184, 0.15);
 }
 
 .section-heading {
@@ -700,7 +700,7 @@ button {
   justify-content: space-between;
   align-items: flex-end;
   padding: 24px 28px 20px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(22, 134, 184, 0.22);
 }
 
 .section-heading h2 {
@@ -725,9 +725,9 @@ button {
   align-items: center;
   height: 42px;
   padding: 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(22, 134, 184, 0.22);
   margin-bottom: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.55);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.02em;
