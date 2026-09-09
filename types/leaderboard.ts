@@ -73,7 +73,7 @@ export const COLLEGES: Record<string, CollegeInfo> = {
   CORE:    { short: 'CORE',    name: 'College of Operations, Resources, and Entrepreneurship',     color: '#7d5ca1' },
   CCJE:    { short: 'CCJE',    name: 'College of Criminal Justice Education',                      color: '#c43c08' },
   CTE:     { short: 'CTE',     name: 'College of Teacher Education',                               color: '#00057d' },
-  CIHT:    { short: 'CIHT',    name: 'College of Innovative Hospitality and Tourism',              color: '#7d5ca1' },
+  CIHT:    { short: 'CIHT',    name: 'College of Innovative Hospitality and Tourism',              color: '#1e3a8a' },
 }
 
 export const DEFAULT_COLLEGE: CollegeInfo = {
@@ -102,7 +102,7 @@ export const CREWS: Record<string, Crew> = {
   CORE:    { name: 'College of Ops, Resources & Entrepreneurship',            role: 'The Doctor',      color: '#7d5ca1' },
   CCJE:    { name: 'College of Criminal Justice',                             role: 'The Historian',   color: '#c43c08' },
   CTE:     { name: 'College of Teacher Education',                            role: 'The Builder',    color: '#00057d' },
-  CIHT:    { name: 'College of Innovative Hospitality & Tourism',             role: 'The Host',        color: '#7d5ca1' },
+  CIHT:    { name: 'College of Innovative Hospitality & Tourism',             role: 'The Host',        color: '#1e3a8a' },
 }
 
 export const DEFAULT_CREW: Crew = {
