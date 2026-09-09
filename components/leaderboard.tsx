@@ -3,12 +3,14 @@
 import { useEffect, useState } from 'react'
 import { SOURCE_URL, getCollegeInfo } from '@/types/leaderboard'
 import { useLeaderboard, relativeTime } from '@/hooks/use-leaderboard'
+import { ChampionPodium } from './champion-podium'
 import { LeaderboardTable } from './leaderboard-table'
 import { SkeletonLoader } from './skeleton-loader'
 
 export function Leaderboard() {
   const {
     sorted,
+    topThree,
     results,
     sort,
     setSortKey,
@@ -53,6 +55,9 @@ export function Leaderboard() {
         </a>
         <h1 className="minimal-brand-caption">The Urian Publication Special Coverage</h1>
       </header>
+
+      {/* ── Standing Podium Section ──────────────────────── */}
+      <ChampionPodium topThree={topThree} loading={loading} />
 
       {/* ── College Leaderboard Card ─────────────────────── */}
       <section className="leaderboard-card" aria-labelledby="standings-title">
