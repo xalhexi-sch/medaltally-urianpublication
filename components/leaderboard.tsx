@@ -91,7 +91,7 @@ export function Leaderboard() {
               </summary>
               <div className="event-list">
                 {results.length ? (
-                  results.map((result) => (
+                  [...results].reverse().map((result) => (
                     <article className="event-result" key={result.event}>
                       <strong>{result.event}</strong>
                       <div className="event-medals-list">
