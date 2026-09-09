@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { SOURCE_URL } from '@/types/leaderboard'
+import { SOURCE_URL, getCollegeInfo } from '@/types/leaderboard'
 import { useLeaderboard, relativeTime } from '@/hooks/use-leaderboard'
 import { ChampionPodium } from './champion-podium'
 import { LeaderboardTable } from './leaderboard-table'
@@ -95,9 +95,9 @@ export function Leaderboard() {
                     <article className="event-result" key={result.event}>
                       <strong>{result.event}</strong>
                       <div className="event-medals-list">
-                        <span className="result-gold">🥇 Gold: {result.gold ?? '—'}</span>
-                        <span className="result-silver">🥈 Silver: {result.silver ?? '—'}</span>
-                        <span className="result-bronze">🥉 Bronze: {result.bronze ?? '—'}</span>
+                        <span className="result-gold">🥇 Gold: {result.gold ? getCollegeInfo(result.gold).short : '—'}</span>
+                        <span className="result-silver">🥈 Silver: {result.silver ? getCollegeInfo(result.silver).short : '—'}</span>
+                        <span className="result-bronze">🥉 Bronze: {result.bronze ? getCollegeInfo(result.bronze).short : '—'}</span>
                       </div>
                     </article>
                   ))

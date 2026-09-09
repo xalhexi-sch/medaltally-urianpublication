@@ -203,7 +203,13 @@ export function useLeaderboard() {
 
   // ── Crew resolver ─────────────────────────────────────
 
-  const getCrew = (college: string) => CREWS[college] ?? DEFAULT_CREW
+  const getCrew = (college: string) => {
+    const norm = college.trim().toUpperCase()
+    for (const [key, val] of Object.entries(CREWS)) {
+      if (key.toUpperCase() === norm) return val
+    }
+    return DEFAULT_CREW
+  }
 
   return {
     rows,

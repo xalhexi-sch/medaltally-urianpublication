@@ -52,10 +52,10 @@ export const POLL_INTERVAL = 15_000
 export const STALE_THRESHOLD = 5 * 60 * 1000 // 5 minutes
 
 /**
- * Authentic college colors directly matching the official broadcast graphic:
- * - CON: Silver / Gray
- * - COA: Sky Blue
- * - CENTECH: Orange
+ * Authentic college colors & casing directly matching the official broadcast graphic:
+ * - CoN: Silver / Gray
+ * - CoA: Sky Blue
+ * - CEnTech: Orange
  * - CIHT: Ocean Blue
  * - CAS: Green
  * - CCJE: Red
@@ -64,9 +64,11 @@ export const STALE_THRESHOLD = 5 * 60 * 1000 // 5 minutes
  * - CTE: Royal Blue
  */
 export const COLLEGES: Record<string, CollegeInfo> = {
-  CON:     { short: 'CON',     name: 'College of Nursing',                                         color: '#949ba4' },
-  COA:     { short: 'COA',     name: 'College of Accountancy',                                     color: '#4ba3e3' },
-  CENTECH: { short: 'CENTECH', name: 'College of Engineering & Technology',                         color: '#e66723' },
+  CON:     { short: 'CoN',     name: 'College of Nursing',                                         color: '#949ba4' },
+  CoN:     { short: 'CoN',     name: 'College of Nursing',                                         color: '#949ba4' },
+  COA:     { short: 'CoA',     name: 'College of Accountancy',                                     color: '#4ba3e3' },
+  CoA:     { short: 'CoA',     name: 'College of Accountancy',                                     color: '#4ba3e3' },
+  CENTECH: { short: 'CEnTech', name: 'College of Engineering & Technology',                         color: '#e66723' },
   CEnTech: { short: 'CEnTech', name: 'College of Engineering & Technology',                         color: '#e66723' },
   CIHT:    { short: 'CIHT',    name: 'College of Innovative Hospitality and Tourism',              color: '#1d6ecb' },
   CAS:     { short: 'CAS',     name: 'College of Arts & Sciences',                                 color: '#228b38' },
@@ -94,7 +96,9 @@ export function getCollegeInfo(code: string): CollegeInfo {
 // Retained for backward compatibility
 export const CREWS: Record<string, Crew> = {
   CON:     { name: 'College of Nursing',                                      role: 'The Doctor',        color: '#949ba4' },
+  CoN:     { name: 'College of Nursing',                                      role: 'The Doctor',        color: '#949ba4' },
   COA:     { name: 'College of Accountancy',                                  role: 'The Musician',      color: '#4ba3e3' },
+  CoA:     { name: 'College of Accountancy',                                  role: 'The Musician',      color: '#4ba3e3' },
   CENTECH: { name: 'College of Engineering',                                  role: 'The Shipwright',    color: '#e66723' },
   CEnTech: { name: 'College of Engineering',                                  role: 'The Shipwright',    color: '#e66723' },
   CIHT:    { name: 'College of Innovative Hospitality & Tourism',             role: 'The Helmsman',      color: '#1d6ecb' },
