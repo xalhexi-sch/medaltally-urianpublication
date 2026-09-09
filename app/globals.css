@@ -868,18 +868,20 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-/* Angled White Tab with College Logo */
+/* Angled Tab with College Logo — Darker Shade of College Color */
 .banner-logo-tab {
   width: 68px;
   height: 100%;
-  background: #ffffff;
+  background: rgba(0, 0, 0, 0.35);
+  background: color-mix(in srgb, var(--college-color) 52%, #000000 48%);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   transform: skewX(-14deg);
   margin-left: -6px;
   margin-right: 14px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
   z-index: 2;
 }
@@ -887,6 +889,7 @@ button {
 .banner-logo-tab .crew-logo {
   transform: skewX(14deg);
   object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
 }
 
 .banner-logo-tab .crew-initials {
