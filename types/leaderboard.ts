@@ -67,13 +67,13 @@ export const COLLEGES: Record<string, CollegeInfo> = {
   CON:     { short: 'CON',     name: 'College of Nursing',                                         color: '#e11d48' },
   CAS:     { short: 'CAS',     name: 'College of Arts & Sciences',                                 color: '#15803d' },
   COA:     { short: 'COA',     name: 'College of Accountancy',                                     color: '#d97706', textColor: '#fff' },
-  CITEC:   { short: 'CITEC',   name: 'College of Information Technology & Engineering Computing',  color: '#0284c7' },
+  CITEC:   { short: 'CITEC',   name: 'College of Information Technology, Entertainment, and Computing', color: '#0284c7' },
   CEnTech: { short: 'CEnTech', name: 'College of Engineering & Technology',                         color: '#c2410c' },
   CENTECH: { short: 'CENTECH', name: 'College of Engineering & Technology',                         color: '#c2410c' },
-  CORE:    { short: 'CORE',    name: 'College of Rehabilitation Sciences',                         color: '#1d4ed8' },
+  CORE:    { short: 'CORE',    name: 'College of Operations, Resources, and Entrepreneurship',     color: '#1d4ed8' },
   CCJE:    { short: 'CCJE',    name: 'College of Criminal Justice Education',                      color: '#ea580c' },
   CTE:     { short: 'CTE',     name: 'College of Teacher Education',                               color: '#7e22ce' },
-  CIHT:    { short: 'CIHT',    name: 'College of International Hospitality & Tourism',             color: '#4f46e5' },
+  CIHT:    { short: 'CIHT',    name: 'College of Innovative Hospitality and Tourism',              color: '#4f46e5' },
 }
 
 export const DEFAULT_COLLEGE: CollegeInfo = {
@@ -93,16 +93,16 @@ export function getCollegeInfo(code: string): CollegeInfo {
 
 // Retained for backward compatibility
 export const CREWS: Record<string, Crew> = {
-  CON:     { name: 'College of Nursing',          role: 'The Captain',     color: '#e11d48' },
-  CAS:     { name: 'College of Arts & Sciences',  role: 'The Scholar',     color: '#15803d' },
-  COA:     { name: 'College of Accountancy',      role: 'The Swordmaster', color: '#d97706' },
-  CITEC:   { name: 'College of Info Tech & Comp', role: 'The Chef',        color: '#0284c7' },
-  CEnTech: { name: 'College of Engineering',      role: 'The Navigator',   color: '#c2410c' },
-  CENTECH: { name: 'College of Engineering',      role: 'The Navigator',   color: '#c2410c' },
-  CORE:    { name: 'College of Rehab Sciences',   role: 'The Doctor',      color: '#1d4ed8' },
-  CCJE:    { name: 'College of Criminal Justice', role: 'The Historian',   color: '#ea580c' },
-  CTE:     { name: 'College of Teacher Education', role: 'The Builder',    color: '#7e22ce' },
-  CIHT:    { name: 'College of Hosp & Tourism',   role: 'The Host',        color: '#4f46e5' },
+  CON:     { name: 'College of Nursing',                                      role: 'The Captain',     color: '#e11d48' },
+  CAS:     { name: 'College of Arts & Sciences',                              role: 'The Scholar',     color: '#15803d' },
+  COA:     { name: 'College of Accountancy',                                  role: 'The Swordmaster', color: '#d97706' },
+  CITEC:   { name: 'College of Info Tech, Entertainment & Computing',         role: 'The Chef',        color: '#0284c7' },
+  CEnTech: { name: 'College of Engineering',                                  role: 'The Navigator',   color: '#c2410c' },
+  CENTECH: { name: 'College of Engineering',                                  role: 'The Navigator',   color: '#c2410c' },
+  CORE:    { name: 'College of Ops, Resources & Entrepreneurship',            role: 'The Doctor',      color: '#1d4ed8' },
+  CCJE:    { name: 'College of Criminal Justice',                             role: 'The Historian',   color: '#ea580c' },
+  CTE:     { name: 'College of Teacher Education',                            role: 'The Builder',    color: '#7e22ce' },
+  CIHT:    { name: 'College of Innovative Hospitality & Tourism',             role: 'The Host',        color: '#4f46e5' },
 }
 
 export const DEFAULT_CREW: Crew = {

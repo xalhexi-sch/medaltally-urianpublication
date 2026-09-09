@@ -24,6 +24,11 @@ export const metadata: Metadata = {
       'Live medal tally leaderboard for the 125th University Days.',
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/apple-icon.png',
+  },
 }
 
 export const viewport: Viewport = {
