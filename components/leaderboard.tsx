@@ -112,39 +112,22 @@ export function Leaderboard() {
 
       {/* ── Footer ────────────────────────────────────────── */}
       <footer>
-        <div className="footer-content">
-          <div className="footer-brand">
-            <img
-              src="/urian-pub-logo.png"
-              alt="Urian Publication Logo"
-              width={22}
-              height={22}
-              className="footer-brand-icon"
-            />
-            <span>
-              Official Coverage by{' '}
-              <a href="https://urianpublication.com" target="_blank" rel="noreferrer">
-                Urian Publication
-              </a>
-            </span>
-          </div>
-          <div className="footer-meta">
-            <span>
-              Source:{' '}
-              <a href={SOURCE_URL} target="_blank" rel="noreferrer">
-                Foundation Anniversary
-              </a>
-            </span>
-            <span aria-live="polite">
-              {syncing ? (
-                <>
-                  <i className="syncing-dot" /> Syncing…
-                </>
-              ) : (
-                <>Updated {timeLabel}</>
-              )}
-            </span>
-          </div>
+        <div className="footer-meta">
+          <span>
+            Source:{' '}
+            <a href={SOURCE_URL} target="_blank" rel="noreferrer">
+              Foundation Anniversary
+            </a>
+          </span>
+          <span aria-live="polite">
+            {syncing ? (
+              <>
+                <i className="syncing-dot" /> Syncing…
+              </>
+            ) : (
+              <>Updated {timeLabel}</>
+            )}
+          </span>
         </div>
       </footer>
     </main>
