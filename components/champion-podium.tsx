@@ -8,14 +8,28 @@ interface ChampionPodiumProps {
   loading?: boolean
 }
 
+function isScoreTied(a?: MedalRow, b?: MedalRow) {
+  if (!a || !b) return false
+  return (
+    a.gold === b.gold &&
+    a.silver === b.silver &&
+    a.bronze === b.bronze &&
+    a.total === b.total
+  )
+}
+
 function PodiumCard({
   row,
   place,
   delay,
+  displayRank,
+  isTied,
 }: {
   row: MedalRow
   place: 1 | 2 | 3
   delay: number
+  displayRank?: string
+  isTied?: boolean
 }) {
   const college = getCollegeInfo(row.college)
 
@@ -68,8 +82,11 @@ function PodiumCard({
       {/* Avatar with illuminated glowing ring & small rank badge */}
       <div className={`podium-avatar-wrapper ${config.glowRing}`}>
         <CrewLogo college={row.college} size={config.avatarSize} priority />
-        <div className={`podium-rank-badge ${config.badgeClass}`}>
-          {place}
+        <div
+          className={`podium-rank-badge ${config.badgeClass} ${isTied ? 'podium-rank-badge-tied' : ''}`}
+          title={isTied ? `Tied for rank position ${place}` : `Rank ${place}`}
+        >
+          {displayRank ?? place}
         </div>
       </div>
 
@@ -145,13 +162,44 @@ export function ChampionPodium({ topThree, loading }: ChampionPodiumProps) {
   const second = topThree[1]
   const third = topThree[2]
 
+  const tie1and2 = isScoreTied(first, second)
+  const tie2and3 = isScoreTied(second, third)
+
+  const firstRank = tie1and2 ? 'T-1st' : '1'
+  const secondRank = tie1and2 ? 'T-1st' : tie2and3 ? 'T-2nd' : '2'
+  const thirdRank = tie2and3 ? (tie1and2 ? 'T-1st' : 'T-2nd') : '3'
+
   return (
     <section className="podium-section" aria-label="Standings podium">
       <div className="podium-stage-container">
         <div className="podium-grid">
-          {second && <PodiumCard row={second} place={2} delay={120} />}
-          {first && <PodiumCard row={first} place={1} delay={0} />}
-          {third && <PodiumCard row={third} place={3} delay={240} />}
+          {second && (
+            <PodiumCard
+              row={second}
+              place={2}
+              delay={120}
+              displayRank={secondRank}
+              isTied={tie1and2 || tie2and3}
+            />
+          )}
+          {first && (
+            <PodiumCard
+              row={first}
+              place={1}
+              delay={0}
+              displayRank={firstRank}
+              isTied={tie1and2}
+            />
+          )}
+          {third && (
+            <PodiumCard
+              row={third}
+              place={3}
+              delay={240}
+              displayRank={thirdRank}
+              isTied={tie2and3}
+            />
+          )}
         </div>
         {/* Grounding stage base */}
         <div className="podium-stage-floor" />

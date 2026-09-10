@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { getCollegeInfo } from '@/types/leaderboard'
 
 const SIZES = {
@@ -42,13 +43,13 @@ export function CrewLogo({ college, size = 'md', className = '', priority = fals
   }
 
   return (
-    <img
+    <Image
       src={logoPath}
       alt={`${collegeInfo.short} Logo`}
       width={px}
       height={px}
       className={`crew-logo crew-logo-${size} ${className}`}
-      loading={priority ? 'eager' : 'lazy'}
+      priority={priority}
       onError={() => setFailed(true)}
     />
   )

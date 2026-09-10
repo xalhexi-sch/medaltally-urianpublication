@@ -18,13 +18,25 @@ export function Leaderboard() {
     syncing,
     error,
     updatedAt,
+    stale,
     reload,
   } = useLeaderboard()
 
   const [timeLabel, setTimeLabel] = useState(() => relativeTime(updatedAt))
+  const [absoluteTime, setAbsoluteTime] = useState<string>('')
+
   useEffect(() => {
-    setTimeLabel(relativeTime(updatedAt))
-    const tick = window.setInterval(() => setTimeLabel(relativeTime(updatedAt)), 15_000)
+    const updateTimes = () => {
+      setTimeLabel(relativeTime(updatedAt))
+      if (updatedAt) {
+        setAbsoluteTime(updatedAt.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' }))
+      } else {
+        setAbsoluteTime('')
+      }
+    }
+
+    updateTimes()
+    const tick = window.setInterval(updateTimes, 1000)
     return () => window.clearInterval(tick)
   }, [updatedAt])
 
@@ -33,9 +45,15 @@ export function Leaderboard() {
       {/* ── Minimal Brand Header ─────────────────────────── */}
       <header className="minimal-brand-header">
         <div className="top-right-status">
-          <span className="live-pill" aria-label="Live updates active">
-            <i className="live-indicator" /> Live
-          </span>
+          {stale ? (
+            <span className="live-pill delayed-pill" aria-label="Data updates delayed">
+              <i className="live-indicator delayed-indicator" /> Delayed
+            </span>
+          ) : (
+            <span className="live-pill" aria-label="Live updates active">
+              <i className="live-indicator" /> Live
+            </span>
+          )}
         </div>
 
         <a
@@ -125,7 +143,10 @@ export function Leaderboard() {
                 <i className="syncing-dot" /> Syncing…
               </>
             ) : (
-              <>Updated {timeLabel}</>
+              <>
+                Updated {timeLabel}
+                {absoluteTime && <span className="footer-clock-label"> · As of {absoluteTime}</span>}
+              </>
             )}
           </span>
         </div>

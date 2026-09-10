@@ -14,6 +14,14 @@ export const metadata: Metadata = {
       'Live medal tally leaderboard for the 125th University Days.',
     url: 'https://medaltally.urianpublication.com',
     siteName: 'Medal Tally',
+    images: [
+      {
+        url: '/udays-125-header.png',
+        width: 1200,
+        height: 630,
+        alt: '125th University Days Medal Tally — Urian Publication',
+      },
+    ],
     type: 'website',
     locale: 'en_PH',
   },
@@ -22,6 +30,7 @@ export const metadata: Metadata = {
     title: 'Medal Tally — 125th University Days',
     description:
       'Live medal tally leaderboard for the 125th University Days.',
+    images: ['/udays-125-header.png'],
   },
   robots: { index: true, follow: true },
   icons: {

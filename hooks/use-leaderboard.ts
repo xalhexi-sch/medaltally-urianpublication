@@ -10,8 +10,6 @@ import {
   API_URL,
   POLL_INTERVAL,
   STALE_THRESHOLD,
-  CREWS,
-  DEFAULT_CREW,
 } from '@/types/leaderboard'
 
 // ── Normalisers ────────────────────────────────────────────
@@ -201,16 +199,6 @@ export function useLeaderboard() {
         : { key, direction: key === 'college' ? 'asc' : 'desc' },
     )
 
-  // ── Crew resolver ─────────────────────────────────────
-
-  const getCrew = (college: string) => {
-    const norm = college.trim().toUpperCase()
-    for (const [key, val] of Object.entries(CREWS)) {
-      if (key.toUpperCase() === norm) return val
-    }
-    return DEFAULT_CREW
-  }
-
   return {
     rows,
     sorted,
@@ -225,6 +213,5 @@ export function useLeaderboard() {
     updatedAt,
     stale,
     reload: () => void load(true),
-    getCrew,
   }
 }
