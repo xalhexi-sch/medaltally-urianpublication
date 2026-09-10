@@ -12,8 +12,6 @@ export function Leaderboard() {
     sorted,
     topThree,
     results,
-    sort,
-    setSortKey,
     loading,
     syncing,
     error,
@@ -101,7 +99,7 @@ export function Leaderboard() {
           </div>
         ) : (
           <>
-            <LeaderboardTable sorted={sorted} sort={sort} setSortKey={setSortKey} />
+            <LeaderboardTable sorted={sorted} />
 
             <details className="event-results">
               <summary>

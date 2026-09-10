@@ -1390,50 +1390,6 @@ footer {
    HEADER SORTING & DELAYED STATES
    ═══════════════════════════════════════════════════════════ */
 
-.th-sortable {
-  background: transparent;
-  border: none;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 0;
-  transition: color 0.2s ease;
-}
-
-.th-sortable:hover,
-.th-sortable.is-active {
-  color: #ffffff;
-}
-
-button.th-medal-slot {
-  background: transparent;
-  border: none;
-  font: inherit;
-  cursor: pointer;
-  position: relative;
-  border-radius: 6px;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-button.th-medal-slot:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-button.th-medal-slot.is-active {
-  background: rgba(59, 130, 246, 0.2);
-  border: 1px solid rgba(59, 130, 246, 0.4);
-}
-
-.sort-indicator {
-  font-size: 10px;
-  line-height: 1;
-  color: #38bdf8;
-  margin-left: 2px;
-}
-
 .footer-clock-label {
   color: var(--muted);
   font-weight: 400;

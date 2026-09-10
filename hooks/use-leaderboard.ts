@@ -5,8 +5,6 @@ import {
   type MedalRow,
   type EventResult,
   type ApiPayload,
-  type SortKey,
-  type SortState,
   API_URL,
   POLL_INTERVAL,
   STALE_THRESHOLD,
@@ -73,7 +71,6 @@ export function relativeTime(date: Date | null): string {
 export function useLeaderboard() {
   const [rows, setRows] = useState<MedalRow[]>([])
   const [results, setResults] = useState<EventResult[]>([])
-  const [sort, setSort] = useState<SortState>({ key: 'gold', direction: 'desc' })
   const [loading, setLoading] = useState(true)
   const [syncing, setSyncing] = useState(false)
   const [error, setError] = useState('')
@@ -150,19 +147,15 @@ export function useLeaderboard() {
     }
   }, [load, updatedAt])
 
-  // ── Sorted rows ───────────────────────────────────────
+  // ── Sorted rows (Ranked by Gold -> Silver -> Bronze) ──
 
   const sorted = useMemo(
     () =>
       [...rows].sort((a, b) => {
-        if (sort.key === 'college')
-          return sort.direction === 'asc'
-            ? a.college.localeCompare(b.college)
-            : b.college.localeCompare(a.college)
-        const diff = b[sort.key] - a[sort.key]
-        return diff || b.gold - a.gold || b.silver - a.silver || a.college.localeCompare(b.college)
+        const diff = b.gold - a.gold
+        return diff || b.silver - a.silver || b.bronze - a.bronze || a.college.localeCompare(b.college)
       }),
-    [rows, sort],
+    [rows],
   )
 
   // ── Totals ────────────────────────────────────────────
@@ -180,24 +173,9 @@ export function useLeaderboard() {
     [rows],
   )
 
-  // ── Top three (always sorted by gold-first) ──────────
+  // ── Top three ─────────────────────────────────────────
 
-  const topThree = useMemo(() => {
-    const goldSorted = [...rows].sort((a, b) => {
-      const diff = b.gold - a.gold
-      return diff || b.silver - a.silver || b.bronze - a.bronze || a.college.localeCompare(b.college)
-    })
-    return goldSorted.slice(0, 3)
-  }, [rows])
-
-  // ── Sort setter ───────────────────────────────────────
-
-  const setSortKey = (key: SortKey) =>
-    setSort((current) =>
-      current.key === key
-        ? { key, direction: current.direction === 'desc' ? 'asc' : 'desc' }
-        : { key, direction: key === 'college' ? 'asc' : 'desc' },
-    )
+  const topThree = useMemo(() => sorted.slice(0, 3), [sorted])
 
   return {
     rows,
@@ -205,8 +183,6 @@ export function useLeaderboard() {
     topThree,
     results,
     totals,
-    sort,
-    setSortKey,
     loading,
     syncing,
     error,

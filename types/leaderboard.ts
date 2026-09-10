@@ -22,13 +22,6 @@ export type ApiPayload = {
   results: unknown
 }
 
-export type SortKey = 'gold' | 'silver' | 'bronze' | 'total' | 'college'
-
-export type SortState = {
-  key: SortKey
-  direction: 'asc' | 'desc'
-}
-
 export type CollegeInfo = {
   short: string
   name: string
