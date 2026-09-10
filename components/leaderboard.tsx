@@ -22,7 +22,6 @@ export function Leaderboard() {
 
   const [timeLabel, setTimeLabel] = useState(() => relativeTime(updatedAt))
   const [absoluteTime, setAbsoluteTime] = useState<string>('')
-  const [currentTime, setCurrentTime] = useState<string>('')
 
   useEffect(() => {
     const updateTimes = () => {
@@ -32,8 +31,6 @@ export function Leaderboard() {
       } else {
         setAbsoluteTime('')
       }
-      const now = new Date()
-      setCurrentTime(now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' }))
     }
 
     updateTimes()
@@ -51,8 +48,8 @@ export function Leaderboard() {
               <i className="live-indicator delayed-indicator" /> Delayed
             </span>
           ) : (
-            <span className="live-pill" aria-label="Updates active">
-              <i className="live-indicator" /> Active
+            <span className="live-pill" aria-label="Live updates active">
+              <i className="live-indicator" /> Live
             </span>
           )}
         </div>
@@ -82,10 +79,8 @@ export function Leaderboard() {
       <section className="leaderboard-card" aria-labelledby="standings-title">
         <div className="section-heading">
           <div>
-            <h2 id="standings-title" className="standings-main-title">CURRENT STANDINGS!</h2>
-            <p className="standings-sub-timestamp">
-              As of September 10, 2026 | {currentTime || '—'}
-            </p>
+            <p className="eyebrow">Standings</p>
+            <h2 id="standings-title">College Leaderboard</h2>
           </div>
         </div>
 
