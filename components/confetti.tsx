@@ -20,18 +20,18 @@ interface ConfettiParticle {
 }
 
 const PALETTE = [
-  '#FFD700', // Gold
-  '#F59E0B', // Amber
-  '#FDE047', // Light Gold
-  '#1686B8', // Urian Blue
+  '#FFD700', // Championship Gold
+  '#F59E0B', // Amber Gold
+  '#FEF08A', // Pale Gold
   '#38BDF8', // Sky Blue
-  '#60A5FA', // Blue Light
+  '#1686B8', // Urian Deep Blue
+  '#60A5FA', // Light Blue
   '#E66723', // CEnTech Orange
   '#D62828', // CCJE Red
   '#228B38', // CAS Green
   '#7B38B8', // CITEC Purple
-  '#E2E8F0', // Silver / CoN
-  '#FFFFFF', // Bright White
+  '#E2E8F0', // Silver
+  '#FFFFFF', // Pure White
 ]
 
 export function Confetti() {
@@ -57,31 +57,34 @@ export function Confetti() {
     window.addEventListener('resize', handleResize)
 
     // Generate confetti particle
-    const createParticle = (initial = false): ConfettiParticle => {
+    const createParticle = (isInitial = false): ConfettiParticle => {
       const isCircle = Math.random() < 0.25
-      const sizeBase = Math.random() * 6 + 6
+      const sizeBase = Math.random() * 5 + 6
 
       return {
         x: Math.random() * width,
-        // When initial is true, spread across top and upper portion so it's instantly falling
-        y: initial ? Math.random() * height * 0.9 : -20 - Math.random() * 40,
+        // When freshly opened, start strictly ABOVE the viewport so the user watches it gently fall from the top
+        y: isInitial
+          ? -15 - Math.random() * 550
+          : -20 - Math.random() * 50,
         w: sizeBase,
-        h: isCircle ? sizeBase : sizeBase * (1.2 + Math.random() * 0.8),
+        h: isCircle ? sizeBase : sizeBase * (1.3 + Math.random() * 0.7),
         color: PALETTE[Math.floor(Math.random() * PALETTE.length)],
         shape: isCircle ? 'circle' : 'rect',
-        speedY: Math.random() * 2.2 + 1.6,
-        speedX: (Math.random() - 0.5) * 1.5,
+        // Slower, graceful floating fall speed
+        speedY: Math.random() * 1.3 + 0.9,
+        speedX: (Math.random() - 0.5) * 1.0,
         tilt: Math.random() * 10 - 10,
         tiltAngle: Math.random() * Math.PI * 2,
-        tiltSpeed: Math.random() * 0.07 + 0.03,
+        tiltSpeed: Math.random() * 0.05 + 0.025,
         rotation: Math.random() * 360,
-        rotationSpeed: (Math.random() - 0.5) * 4,
+        rotationSpeed: (Math.random() - 0.5) * 2.8,
         opacity: Math.random() * 0.25 + 0.75,
       }
     }
 
-    // Number of particles for nonstop festive celebration
-    const PARTICLE_COUNT = 75
+    // Number of particles for gentle nonstop festive celebration
+    const PARTICLE_COUNT = 80
     const particles: ConfettiParticle[] = Array.from({ length: PARTICLE_COUNT }, () =>
       createParticle(true),
     )
@@ -90,7 +93,7 @@ export function Confetti() {
 
     const render = () => {
       ctx.clearRect(0, 0, width, height)
-      windOffset += 0.015
+      windOffset += 0.012
 
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i]
@@ -98,34 +101,37 @@ export function Confetti() {
         p.tiltAngle += p.tiltSpeed
         p.rotation += p.rotationSpeed
         p.y += p.speedY
-        p.x += p.speedX + Math.sin(windOffset + i) * 0.6
+        p.x += p.speedX + Math.sin(windOffset + i) * 0.5
         p.tilt = Math.sin(p.tiltAngle) * 12
 
-        // Nonstop looping: When a particle falls past the bottom, recycle to top
+        // Nonstop looping: When a particle falls past the bottom, recycle above top
         if (p.y > height + 25 || p.x < -30 || p.x > width + 30) {
           particles[i] = createParticle(false)
           particles[i].x = Math.random() * width
-          particles[i].y = -20 - Math.random() * 30
+          particles[i].y = -20 - Math.random() * 40
         }
 
-        ctx.save()
-        ctx.fillStyle = p.color
-        ctx.globalAlpha = p.opacity
-        ctx.translate(p.x, p.y)
-        ctx.rotate((p.rotation * Math.PI) / 180)
+        // Only draw when inside or slightly above viewport
+        if (p.y >= -20) {
+          ctx.save()
+          ctx.fillStyle = p.color
+          ctx.globalAlpha = p.opacity
+          ctx.translate(p.x, p.y)
+          ctx.rotate((p.rotation * Math.PI) / 180)
 
-        // 3D flutter effect using cosine scaling
-        const scaleX = Math.cos(p.tiltAngle)
+          // 3D flutter effect using cosine scaling
+          const scaleX = Math.cos(p.tiltAngle)
 
-        if (p.shape === 'circle') {
-          ctx.beginPath()
-          ctx.ellipse(0, 0, Math.max(1, Math.abs(p.w * scaleX) / 2), p.w / 2, 0, 0, Math.PI * 2)
-          ctx.fill()
-        } else {
-          ctx.fillRect(-Math.abs(p.w * scaleX) / 2, -p.h / 2, Math.abs(p.w * scaleX), p.h)
+          if (p.shape === 'circle') {
+            ctx.beginPath()
+            ctx.ellipse(0, 0, Math.max(1, Math.abs(p.w * scaleX) / 2), p.w / 2, 0, 0, Math.PI * 2)
+            ctx.fill()
+          } else {
+            ctx.fillRect(-Math.abs(p.w * scaleX) / 2, -p.h / 2, Math.abs(p.w * scaleX), p.h)
+          }
+
+          ctx.restore()
         }
-
-        ctx.restore()
       }
 
       animationId = requestAnimationFrame(render)
