@@ -10,45 +10,41 @@ declare global {
 }
 
 const YOUTUBE_VIDEO_ID = 'Yo0U0enyaPU'
+const START_SECONDS = 30
 
 export function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
   const playerRef = useRef<any>(null)
-  const containerRef = useRef<HTMLDivElement | null>(null)
+  const hasSeekedRef = useRef(false)
 
   useEffect(() => {
     let isMounted = true
 
-    // Initialize YouTube Player
+    const startPlayback = (player: any) => {
+      if (!player) return
+      try {
+        if (!hasSeekedRef.current) {
+          player.seekTo?.(START_SECONDS, true)
+          hasSeekedRef.current = true
+        }
+        player.unMute?.()
+        player.playVideo?.()
+      } catch (err) {
+        console.log('Autoplay attempt:', err)
+      }
+    }
+
+    // Initialize YouTube Player attached to the rendered iframe
     const initPlayer = () => {
       if (!window.YT || !window.YT.Player) return
 
       try {
         playerRef.current = new window.YT.Player('yt-audio-player', {
-          height: '1',
-          width: '1',
-          videoId: YOUTUBE_VIDEO_ID,
-          playerVars: {
-            autoplay: 1,
-            controls: 0,
-            disablekb: 1,
-            fs: 0,
-            loop: 1,
-            playlist: YOUTUBE_VIDEO_ID,
-            modestbranding: 1,
-            playsinline: 1,
-            rel: 0,
-          },
           events: {
             onReady: (event: any) => {
               if (!isMounted) return
-              try {
-                event.target.playVideo()
-                setIsPlaying(true)
-              } catch (e) {
-                console.log('Autoplay deferred until first user interaction', e)
-              }
+              startPlayback(event.target)
             },
             onStateChange: (event: any) => {
               if (!isMounted) return
@@ -80,29 +76,29 @@ export function MusicPlayer() {
       initPlayer()
     }
 
-    // Browser Autoplay Fallback:
-    // If browser blocks unmuted audio before user interaction, start on first gesture
-    const handleFirstGesture = () => {
+    // Fast-trigger fallback on ANY initial user interaction (click, scroll, tap, keypress)
+    const triggerAudioOnGesture = () => {
       if (playerRef.current) {
         try {
           const state = playerRef.current.getPlayerState?.()
           if (state !== 1) {
-            playerRef.current.playVideo?.()
+            startPlayback(playerRef.current)
             setIsPlaying(true)
           }
         } catch {}
       }
     }
 
-    window.addEventListener('click', handleFirstGesture, { once: true })
-    window.addEventListener('touchstart', handleFirstGesture, { once: true })
-    window.addEventListener('keydown', handleFirstGesture, { once: true })
+    const events = ['pointerdown', 'touchstart', 'click', 'keydown', 'scroll', 'wheel']
+    for (const ev of events) {
+      window.addEventListener(ev, triggerAudioOnGesture, { once: true, passive: true })
+    }
 
     return () => {
       isMounted = false
-      window.removeEventListener('click', handleFirstGesture)
-      window.removeEventListener('touchstart', handleFirstGesture)
-      window.removeEventListener('keydown', handleFirstGesture)
+      for (const ev of events) {
+        window.removeEventListener(ev, triggerAudioOnGesture)
+      }
       try {
         playerRef.current?.destroy?.()
       } catch {}
@@ -113,8 +109,12 @@ export function MusicPlayer() {
     if (!playerRef.current) return
     try {
       if (!isPlaying) {
-        playerRef.current.playVideo?.()
+        if (!hasSeekedRef.current) {
+          playerRef.current.seekTo?.(START_SECONDS, true)
+          hasSeekedRef.current = true
+        }
         playerRef.current.unMute?.()
+        playerRef.current.playVideo?.()
         setIsPlaying(true)
         setIsMuted(false)
         return
@@ -134,20 +134,30 @@ export function MusicPlayer() {
 
   return (
     <>
-      {/* Hidden YouTube Audio IFrame */}
+      {/* In-viewport invisible iframe with allow="autoplay" for maximum browser compatibility */}
       <div
-        ref={containerRef}
         style={{
           position: 'fixed',
-          top: -9999,
-          left: -9999,
-          width: 1,
-          height: 1,
-          opacity: 0,
+          bottom: 0,
+          right: 0,
+          width: '240px',
+          height: '180px',
+          opacity: 0.001,
           pointerEvents: 'none',
+          zIndex: -1,
+          overflow: 'hidden',
         }}
+        aria-hidden="true"
       >
-        <div id="yt-audio-player" />
+        <iframe
+          id="yt-audio-player"
+          width="240"
+          height="180"
+          src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?enablejsapi=1&autoplay=1&start=${START_SECONDS}&loop=1&playlist=${YOUTUBE_VIDEO_ID}&playsinline=1`}
+          title="Audio Player"
+          allow="autoplay; encrypted-media"
+          style={{ border: 0 }}
+        />
       </div>
 
       {/* Floating Music Toggle: Moving Music Icon + Mute */}
