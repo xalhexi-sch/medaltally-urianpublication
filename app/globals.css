@@ -1530,6 +1530,12 @@ footer {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 20px rgba(234, 179, 8, 0.3);
 }
 
+.music-pill-btn.is-muted {
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
 .sound-wave-bars {
   display: inline-flex;
   align-items: flex-end;
@@ -1557,6 +1563,10 @@ footer {
   animation: soundBar 1.1s ease-in-out 0.4s infinite alternate;
 }
 
+.wave-bar.animating:nth-child(4) {
+  animation: soundBar 0.8s ease-in-out 0.1s infinite alternate;
+}
+
 @keyframes soundBar {
   0% {
     height: 4px;
@@ -1564,29 +1574,6 @@ footer {
   100% {
     height: 14px;
   }
-}
-
-.music-mute-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  background: rgba(9, 32, 47, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(22, 134, 184, 0.45);
-  border-radius: 50%;
-  color: #f1f5f9;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  transition: all 0.2s ease;
-}
-
-.music-mute-btn:hover {
-  transform: scale(1.08);
-  border-color: rgba(56, 189, 248, 0.6);
 }
 
 @media (max-width: 600px) {

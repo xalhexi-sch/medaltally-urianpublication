@@ -14,7 +14,6 @@ const YOUTUBE_VIDEO_ID = 'Yo0U0enyaPU'
 export function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
-  const [hasStarted, setHasStarted] = useState(false)
   const playerRef = useRef<any>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
 
@@ -47,7 +46,6 @@ export function MusicPlayer() {
               try {
                 event.target.playVideo()
                 setIsPlaying(true)
-                setHasStarted(true)
               } catch (e) {
                 console.log('Autoplay deferred until first user interaction', e)
               }
@@ -57,7 +55,6 @@ export function MusicPlayer() {
               // YT.PlayerState.PLAYING is 1
               if (event.data === 1) {
                 setIsPlaying(true)
-                setHasStarted(true)
               } else if (event.data === 2) {
                 // PAUSED
                 setIsPlaying(false)
@@ -83,8 +80,8 @@ export function MusicPlayer() {
       initPlayer()
     }
 
-    // Browser Autoplay Policy Fallback:
-    // If browser blocks unmuted sound before user gesture, play immediately on first click/tap anywhere
+    // Browser Autoplay Fallback:
+    // If browser blocks unmuted audio before user interaction, start on first gesture
     const handleFirstGesture = () => {
       if (playerRef.current) {
         try {
@@ -92,7 +89,6 @@ export function MusicPlayer() {
           if (state !== 1) {
             playerRef.current.playVideo?.()
             setIsPlaying(true)
-            setHasStarted(true)
           }
         } catch {}
       }
@@ -113,32 +109,28 @@ export function MusicPlayer() {
     }
   }, [])
 
-  const togglePlay = () => {
+  const handleToggle = () => {
     if (!playerRef.current) return
     try {
-      if (isPlaying) {
-        playerRef.current.pauseVideo()
-        setIsPlaying(false)
-      } else {
-        playerRef.current.playVideo()
+      if (!isPlaying) {
+        playerRef.current.playVideo?.()
+        playerRef.current.unMute?.()
         setIsPlaying(true)
-        setHasStarted(true)
+        setIsMuted(false)
+        return
       }
-    } catch {}
-  }
 
-  const toggleMute = () => {
-    if (!playerRef.current) return
-    try {
       if (isMuted) {
-        playerRef.current.unMute()
+        playerRef.current.unMute?.()
         setIsMuted(false)
       } else {
-        playerRef.current.mute()
+        playerRef.current.mute?.()
         setIsMuted(true)
       }
     } catch {}
   }
+
+  const isMusicActive = isPlaying && !isMuted
 
   return (
     <>
@@ -158,37 +150,27 @@ export function MusicPlayer() {
         <div id="yt-audio-player" />
       </div>
 
-      {/* Modern Floating Music Widget */}
-      <div className="music-pill-widget" aria-label="Audio player controls">
+      {/* Floating Music Toggle: Moving Music Icon + Mute */}
+      <div className="music-pill-widget" aria-label="Audio controls">
         <button
           type="button"
-          onClick={togglePlay}
-          className={`music-pill-btn ${isPlaying ? 'is-playing' : ''}`}
-          title={isPlaying ? 'Pause UDAYS Anthem' : 'Play UDAYS Anthem'}
+          onClick={handleToggle}
+          className={`music-pill-btn ${isMusicActive ? 'is-playing' : 'is-muted'}`}
+          title={isMuted ? 'Unmute music' : 'Mute music'}
+          aria-label={isMuted ? 'Unmute' : 'Mute'}
         >
-          {/* Animated sound equalizer bars */}
+          {/* Animated moving sound wave music bars */}
           <span className="sound-wave-bars" aria-hidden="true">
-            <span className={`wave-bar ${isPlaying ? 'animating' : ''}`} />
-            <span className={`wave-bar ${isPlaying ? 'animating' : ''}`} />
-            <span className={`wave-bar ${isPlaying ? 'animating' : ''}`} />
+            <span className={`wave-bar ${isMusicActive ? 'animating' : ''}`} />
+            <span className={`wave-bar ${isMusicActive ? 'animating' : ''}`} />
+            <span className={`wave-bar ${isMusicActive ? 'animating' : ''}`} />
+            <span className={`wave-bar ${isMusicActive ? 'animating' : ''}`} />
           </span>
 
           <span className="music-pill-text">
-            {isPlaying ? 'UDAYS Anthem ⚓' : 'Play Anthem ▶'}
+            {isMuted ? 'Unmute' : 'Mute'}
           </span>
         </button>
-
-        {isPlaying && (
-          <button
-            type="button"
-            onClick={toggleMute}
-            className="music-mute-btn"
-            title={isMuted ? 'Unmute audio' : 'Mute audio'}
-            aria-label={isMuted ? 'Unmute' : 'Mute'}
-          >
-            {isMuted ? '🔇' : '🔊'}
-          </button>
-        )}
       </div>
     </>
   )
