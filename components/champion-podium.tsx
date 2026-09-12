@@ -165,9 +165,9 @@ export function ChampionPodium({ topThree, loading }: ChampionPodiumProps) {
   const tie1and2 = isScoreTied(first, second)
   const tie2and3 = isScoreTied(second, third)
 
-  const firstRank = tie1and2 ? 'T-1st' : '1'
-  const secondRank = tie1and2 ? 'T-1st' : tie2and3 ? 'T-2nd' : '2'
-  const thirdRank = tie2and3 ? (tie1and2 ? 'T-1st' : 'T-2nd') : '3'
+  const firstRank = '🏆'
+  const secondRank = '1st'
+  const thirdRank = '2nd'
 
   return (
     <section className="podium-section" aria-label="Standings podium">

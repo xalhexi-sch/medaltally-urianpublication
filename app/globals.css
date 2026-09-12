@@ -473,15 +473,22 @@ button {
   bottom: -2px;
   left: 50%;
   transform: translateX(-50%);
-  width: 22px;
+  min-width: 24px;
+  width: auto;
   height: 22px;
-  border-radius: 50%;
+  padding: 0 4px;
+  border-radius: 999px;
   display: grid;
   place-items: center;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 800;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
   border: 2px solid #ffffff;
+  line-height: 1;
+}
+
+.podium-rank-badge.podium-pill-gold {
+  font-size: 12px;
 }
 
 .podium-pill-gold {
@@ -904,13 +911,20 @@ button {
 .banner-rank-badge {
   display: grid;
   place-items: center;
-  width: 28px;
+  min-width: 28px;
+  width: auto;
   height: 28px;
-  border-radius: 50%;
-  font-size: 13px;
+  padding: 0 4px;
+  border-radius: 999px;
+  font-size: 11px;
   font-weight: 800;
   font-variant-numeric: tabular-nums;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  line-height: 1;
+}
+
+.banner-rank-badge.banner-rank-trophy {
+  font-size: 14px;
 }
 
 .banner-rank-badge.rank-1 {

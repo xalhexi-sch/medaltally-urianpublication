@@ -14,6 +14,12 @@ const MEDAL_COLUMNS = [
   { key: 'total', label: 'Total', icon: '🏆' },
 ]
 
+function getOrdinalRank(index: number): string {
+  const s = ['th', 'st', 'nd', 'rd']
+  const v = index % 100
+  return index + (s[(v - 20) % 10] || s[v] || s[0])
+}
+
 export function LeaderboardTable({ sorted }: LeaderboardTableProps) {
   return (
     <div className="table-container">
@@ -47,8 +53,9 @@ export function LeaderboardTable({ sorted }: LeaderboardTableProps) {
       <div className="broadcast-rows-list" role="list">
         {sorted.map((row, index) => {
           const college = getCollegeInfo(row.college)
-          const rank = index + 1
-          const rankClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : 'rank-other'
+          const isChampion = index === 0
+          const displayRank = isChampion ? '🏆' : getOrdinalRank(index)
+          const rankClass = isChampion ? 'rank-1' : index === 1 ? 'rank-2' : index === 2 ? 'rank-3' : 'rank-other'
 
           return (
             <article
@@ -64,8 +71,11 @@ export function LeaderboardTable({ sorted }: LeaderboardTableProps) {
             >
               {/* Rank Slot */}
               <div className="banner-rank-slot">
-                <span className={`banner-rank-badge ${rankClass}`}>
-                  {rank}
+                <span
+                  className={`banner-rank-badge ${rankClass} ${isChampion ? 'banner-rank-trophy' : ''}`}
+                  title={isChampion ? 'Overall Champion' : `${displayRank} Place`}
+                >
+                  {displayRank}
                 </span>
               </div>
 
