@@ -3,15 +3,15 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Medal Tally — 125th University Days',
+  title: 'Final Medal Tally — 125th University Days',
   description:
-    'Live medal tally leaderboard for the 125th University Days. Track gold, silver, and bronze medals across all colleges in real time.',
+    'Official final medal tally leaderboard for the 125th University Days. Final results across all colleges.',
   generator: 'v0.app',
   metadataBase: new URL('https://medaltally.urianpublication.com'),
   openGraph: {
-    title: 'Medal Tally — 125th University Days',
+    title: 'Final Medal Tally — 125th University Days',
     description:
-      'Live medal tally leaderboard for the 125th University Days.',
+      'Official final medal tally leaderboard for the 125th University Days.',
     url: 'https://medaltally.urianpublication.com',
     siteName: 'Medal Tally',
     images: [

@@ -1,0 +1,1504 @@
+{
+  "tally": [
+    {
+      "total": 149,
+      "code": "CON",
+      "name": "College of Nursing",
+      "gold": 67,
+      "silver": 58,
+      "bronze": 24,
+      "rank": 1
+    },
+    {
+      "total": 83,
+      "code": "CEnTech",
+      "name": "College of Engineering and Technology",
+      "gold": 35,
+      "silver": 13,
+      "bronze": 35,
+      "rank": 2
+    },
+    {
+      "total": 114,
+      "code": "COA",
+      "name": "College of Accountancy",
+      "gold": 30,
+      "silver": 57,
+      "bronze": 27,
+      "rank": 3
+    },
+    {
+      "total": 63,
+      "code": "CIHT",
+      "name": "College of International Hospitality and Tourism",
+      "gold": 24,
+      "silver": 15,
+      "bronze": 24,
+      "rank": 4
+    },
+    {
+      "total": 57,
+      "code": "CORE",
+      "name": "College of Operations, Resources and Entrepreneurship",
+      "gold": 21,
+      "silver": 16,
+      "bronze": 20,
+      "rank": 5
+    },
+    {
+      "total": 37,
+      "code": "CITEC",
+      "name": "College of Information, Technology, Entertainment, and Computing",
+      "gold": 18,
+      "silver": 10,
+      "bronze": 9,
+      "rank": 6
+    },
+    {
+      "total": 52,
+      "code": "CTE",
+      "name": "College of Teacher Education",
+      "gold": 9,
+      "silver": 18,
+      "bronze": 25,
+      "rank": 7
+    },
+    {
+      "total": 63,
+      "code": "CAS",
+      "name": "College of Arts and Sciences",
+      "gold": 7,
+      "silver": 24,
+      "bronze": 32,
+      "rank": 8
+    },
+    {
+      "total": 21,
+      "code": "CCJE",
+      "name": "College of Criminal Justice Education",
+      "gold": 7,
+      "silver": 7,
+      "bronze": 7,
+      "rank": 9
+    }
+  ],
+  "results": [
+    {
+      "id": "R001",
+      "event": "Bench Yell Competition",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        3,
+        3,
+        3
+      ],
+      "gold": "CON",
+      "silver": "COA",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R002",
+      "event": "Tagbo Urian Fair",
+      "venue": "",
+      "eq": [
+        3,
+        3,
+        3
+      ],
+      "gold": "COA",
+      "silver": "CON",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R003",
+      "event": "Urian Snap Competition",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CEnTech",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R004",
+      "event": "College Promotional Video",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CIHT",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R005",
+      "event": "Vocal Solo",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CAS",
+      "silver": "CTE",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R006",
+      "event": "Vocal Duet",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "COA",
+      "silver": "CON",
+      "bronze": "CTE"
+    },
+    {
+      "id": "R007",
+      "event": "Cheerdance Competition",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        10,
+        10,
+        10
+      ],
+      "gold": "CEnTech",
+      "silver": "COA",
+      "bronze": "CTE"
+    },
+    {
+      "id": "R008",
+      "event": "Pickleball - Women",
+      "venue": "",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CON",
+      "silver": "COA",
+      "bronze": "CORE"
+    },
+    {
+      "id": "R009",
+      "event": "Sudoku",
+      "venue": "CB 325",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "COA",
+      "silver": "CEnTech",
+      "bronze": "CCJE"
+    },
+    {
+      "id": "R010",
+      "event": "Pickleball - Men",
+      "venue": "",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CEnTech",
+      "silver": "CORE",
+      "bronze": "CON"
+    },
+    {
+      "id": "R011",
+      "event": "Billiards Men (9-Ball)",
+      "venue": "D-Beat",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CCJE",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R012",
+      "event": "Rubik's Cube",
+      "venue": "CB 326",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CITEC",
+      "silver": "CON",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R013",
+      "event": "Billiards Women (9-Ball)",
+      "venue": "D-beat",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CIHT",
+      "silver": "CORE",
+      "bronze": "CITEC"
+    },
+    {
+      "id": "R014",
+      "event": "Bandang Urian",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        8,
+        8,
+        8
+      ],
+      "gold": "CON",
+      "silver": "COA",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R015",
+      "event": "Wanna Be Competition",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "CEnTech",
+      "silver": "CTE",
+      "bronze": "CON"
+    },
+    {
+      "id": "R016",
+      "event": "Futsal - Men",
+      "venue": "",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "CORE",
+      "silver": "CON",
+      "bronze": "CITEC"
+    },
+    {
+      "id": "R017",
+      "event": "Futsal - Women",
+      "venue": "",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "COA",
+      "silver": "CON",
+      "bronze": "CTE"
+    },
+    {
+      "id": "R018",
+      "event": "Chess - Men",
+      "venue": "",
+      "eq": [
+        4,
+        4,
+        4
+      ],
+      "gold": "CEnTech",
+      "silver": "CON",
+      "bronze": "COA"
+    },
+    {
+      "id": "R019",
+      "event": "Chess - Women",
+      "venue": "",
+      "eq": [
+        4,
+        4,
+        4
+      ],
+      "gold": "CON",
+      "silver": "COA",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R020",
+      "event": "Table Tennis Single A - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CITEC",
+      "silver": "CON",
+      "bronze": "CORE"
+    },
+    {
+      "id": "R021",
+      "event": "Table Tennis Single A - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CTE",
+      "silver": "CON",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R022",
+      "event": "Table Tennis Single B - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CCJE",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R023",
+      "event": "Table Tennis Single B - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CITEC",
+      "silver": "CAS",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R024",
+      "event": "Table Tennis Doubles - Men",
+      "venue": "",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CITEC",
+      "silver": "CAS",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R025",
+      "event": "Table Tennis Doubles - Women",
+      "venue": "",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "COA",
+      "silver": "CON",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R026",
+      "event": "Athletics Discuss Throw - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CITEC",
+      "silver": "CON",
+      "bronze": "CCJE"
+    },
+    {
+      "id": "R027",
+      "event": "Athletics Javelin Throw - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CEnTech",
+      "silver": "CITEC",
+      "bronze": "CON"
+    },
+    {
+      "id": "R028",
+      "event": "Pickleball - Mixed",
+      "venue": "",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CEnTech",
+      "silver": "COA",
+      "bronze": "CON"
+    },
+    {
+      "id": "R029",
+      "event": "Tekken 8",
+      "venue": "CB Lobby",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CTE",
+      "silver": "CITEC",
+      "bronze": "COA"
+    },
+    {
+      "id": "R030",
+      "event": "Tetris Battle",
+      "venue": "CB Lobby",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CITEC",
+      "silver": "COA",
+      "bronze": "CORE"
+    },
+    {
+      "id": "R031",
+      "event": "Athletics Shot Put - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CITEC",
+      "silver": "CEnTech",
+      "bronze": ""
+    },
+    {
+      "id": "R032",
+      "event": "Athletics Shot Put - Men (Double Entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "",
+      "bronze": "CITEC"
+    },
+    {
+      "id": "R033",
+      "event": "Athletics Shot Put - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "COA",
+      "silver": "CEnTech",
+      "bronze": ""
+    },
+    {
+      "id": "R034",
+      "event": "Athletics - Shot Put Women (double entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R035",
+      "event": "Athletics Discuss Throw - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CEnTech",
+      "silver": "CON",
+      "bronze": ""
+    },
+    {
+      "id": "R036",
+      "event": "Athletics - Discuss Throw Women (double entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R037",
+      "event": "Athletics Javelin Throw - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CEnTech",
+      "silver": "COA",
+      "bronze": ""
+    },
+    {
+      "id": "R038",
+      "event": "Athletics - Javelin Throw Women (double entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "",
+      "bronze": "COA"
+    },
+    {
+      "id": "R039",
+      "event": "Darts Men",
+      "venue": "CB 321",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CORE",
+      "silver": "COA",
+      "bronze": "CON"
+    },
+    {
+      "id": "R040",
+      "event": "Darts Women",
+      "venue": "CB 321",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "COA",
+      "silver": "CON",
+      "bronze": "CCJE"
+    },
+    {
+      "id": "R041",
+      "event": "Volleyball - Women",
+      "venue": "",
+      "eq": [
+        6,
+        6,
+        6
+      ],
+      "gold": "CIHT",
+      "silver": "CTE",
+      "bronze": "COA"
+    },
+    {
+      "id": "R042",
+      "event": "Basketball - Men",
+      "venue": "",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "CCJE",
+      "silver": "CORE",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R043",
+      "event": "Basketball - Women",
+      "venue": "",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "CEnTech",
+      "silver": "COA",
+      "bronze": "CORE"
+    },
+    {
+      "id": "R044",
+      "event": "Poster Making",
+      "venue": "AVR 2",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "COA",
+      "bronze": "CTE"
+    },
+    {
+      "id": "R045",
+      "event": "Keyboard Clash",
+      "venue": "Computer Laboratory",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "COA",
+      "silver": "CITEC",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R046",
+      "event": "Spelling Bee",
+      "venue": "AVR 1",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CON",
+      "silver": "COA",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R047",
+      "event": "Quiz Bee",
+      "venue": "AVR 1",
+      "eq": [
+        3,
+        3,
+        3
+      ],
+      "gold": "CORE",
+      "silver": "CON",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R048",
+      "event": "Digital Poster Making",
+      "venue": "AVR 2",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CEnTech",
+      "silver": "CON",
+      "bronze": "CTE"
+    },
+    {
+      "id": "R049",
+      "event": "Esports - Valorant",
+      "venue": "Gc Esports Computer Shop",
+      "eq": [
+        3,
+        3,
+        3
+      ],
+      "gold": "CITEC",
+      "silver": "COA",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R050",
+      "event": "Esports - Call of Duty",
+      "venue": "CB Lobby",
+      "eq": [
+        3,
+        3,
+        3
+      ],
+      "gold": "COA",
+      "silver": "CON",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R051",
+      "event": "Esports - Mobile Legends",
+      "venue": "CB Lobby",
+      "eq": [
+        3,
+        3,
+        3
+      ],
+      "gold": "CEnTech",
+      "silver": "COA",
+      "bronze": "CORE"
+    },
+    {
+      "id": "R052",
+      "event": "Sack Race Relay",
+      "venue": "CBS Grounds",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CITEC",
+      "silver": "COA",
+      "bronze": "CORE"
+    },
+    {
+      "id": "R053",
+      "event": "Tumba Lata",
+      "venue": "CBS Grounds",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CON",
+      "silver": "CCJE",
+      "bronze": "CORE"
+    },
+    {
+      "id": "R054",
+      "event": "Story Telling",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "COA",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R055",
+      "event": "Spoken Poetry",
+      "venue": "",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CON",
+      "silver": "CIHT",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R056",
+      "event": "Declamation",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CTE",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R057",
+      "event": "Impromptu Speech",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CORE",
+      "silver": "COA",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R058",
+      "event": "On-the-Spot Essay Writing",
+      "venue": "CBE Viewing Room",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CORE",
+      "bronze": "CTE"
+    },
+    {
+      "id": "R059",
+      "event": "Volleyball - Men",
+      "venue": "",
+      "eq": [
+        6,
+        6,
+        6
+      ],
+      "gold": "CIHT",
+      "silver": "CORE",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R060",
+      "event": "Badminton Single A - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CEnTech",
+      "bronze": "CCJE"
+    },
+    {
+      "id": "R061",
+      "event": "Badminton Single A - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "COA",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R062",
+      "event": "Badminton Single B - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CORE",
+      "silver": "CITEC",
+      "bronze": "CAS"
+    },
+    {
+      "id": "R063",
+      "event": "Badminton Single B - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CAS",
+      "silver": "CORE",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R064",
+      "event": "Badminton Doubles - Men",
+      "venue": "",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CITEC",
+      "silver": "COA",
+      "bronze": "CORE"
+    },
+    {
+      "id": "R065",
+      "event": "Badminton Doubles - Women",
+      "venue": "",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CTE",
+      "silver": "CON",
+      "bronze": "COA"
+    },
+    {
+      "id": "R066",
+      "event": "Novelty Show",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "COA",
+      "silver": "CAS",
+      "bronze": ""
+    },
+    {
+      "id": "R067",
+      "event": "Debate",
+      "venue": "",
+      "eq": [
+        3,
+        3,
+        3
+      ],
+      "gold": "CORE",
+      "silver": "CAS",
+      "bronze": "CON"
+    },
+    {
+      "id": "R068",
+      "event": "Dance En Quatro",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        4,
+        4,
+        4
+      ],
+      "gold": "CON",
+      "silver": "CIHT",
+      "bronze": "CTE"
+    },
+    {
+      "id": "R069",
+      "event": "Best Debater",
+      "venue": "",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CORE",
+      "silver": "CAS",
+      "bronze": ""
+    },
+    {
+      "id": "R070",
+      "event": "Folk Dance",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "COA",
+      "silver": "CTE",
+      "bronze": "CON"
+    },
+    {
+      "id": "R071",
+      "event": "Best Debater (double entry)",
+      "venue": "",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "",
+      "silver": "",
+      "bronze": "CORE"
+    },
+    {
+      "id": "R072",
+      "event": "Hiphop",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "CON",
+      "silver": "CAS",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R073",
+      "event": "Dance Sport - Latin",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CIHT",
+      "silver": "CON",
+      "bronze": ""
+    },
+    {
+      "id": "R074",
+      "event": "Radio Broadcasting",
+      "venue": "",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "CON",
+      "silver": "CAS",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R075",
+      "event": "Dance Sport - Standard",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CTE",
+      "silver": "COA",
+      "bronze": "CON"
+    },
+    {
+      "id": "R076",
+      "event": "Tug of War",
+      "venue": "CBS Grounds",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CCJE",
+      "silver": "COA",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R077",
+      "event": "Urian Henyo",
+      "venue": "CBS Grounds",
+      "eq": [
+        2,
+        2,
+        2
+      ],
+      "gold": "CON",
+      "silver": "CEnTech",
+      "bronze": "CCJE"
+    },
+    {
+      "id": "R078",
+      "event": "Swimming 50 M Butterfly - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CIHT",
+      "bronze": ""
+    },
+    {
+      "id": "R079",
+      "event": "Sepak Takraw",
+      "venue": "",
+      "eq": [
+        3,
+        3,
+        3
+      ],
+      "gold": "CTE",
+      "silver": "CCJE",
+      "bronze": "COA"
+    },
+    {
+      "id": "R080",
+      "event": "Swimming 50 M Backstroke - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CIHT",
+      "silver": "CITEC",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R081",
+      "event": "Swimming 50 M Butterfly - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CIHT",
+      "silver": "CON",
+      "bronze": ""
+    },
+    {
+      "id": "R082",
+      "event": "Swimming 100 M Butterfly - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CITEC",
+      "silver": "CON",
+      "bronze": ""
+    },
+    {
+      "id": "R083",
+      "event": "50 M BUTTERFLY MEN (Double Entry",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "CON",
+      "bronze": ""
+    },
+    {
+      "id": "R084",
+      "event": "Swimming 50 M Backstroke - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CIHT",
+      "silver": "CON",
+      "bronze": ""
+    },
+    {
+      "id": "R085",
+      "event": "Swimming 100 M Butterfly- Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "",
+      "bronze": ""
+    },
+    {
+      "id": "R086",
+      "event": "50 M BACKSTROKE WOMEN (double entry",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "",
+      "bronze": "CON"
+    },
+    {
+      "id": "R087",
+      "event": "Swimming 100 M Backstroke - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CEnTech",
+      "bronze": "CCJE"
+    },
+    {
+      "id": "R088",
+      "event": "Swimming 50 M Breast Stroke - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CITEC",
+      "silver": "CIHT",
+      "bronze": ""
+    },
+    {
+      "id": "R089",
+      "event": "Swimming 100 M Backstroke - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "",
+      "bronze": "CTE"
+    },
+    {
+      "id": "R090",
+      "event": "50 M BREAST STROKE MEN (double entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R091",
+      "event": "Swimming 50 M Breast Stroke - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CIHT",
+      "bronze": ""
+    },
+    {
+      "id": "R092",
+      "event": "50 M BREAST STROKE WOMEN (double entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "",
+      "bronze": "CON"
+    },
+    {
+      "id": "R093",
+      "event": "Swimming 100 M Breast Stroke - Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CITEC",
+      "silver": "CON",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R094",
+      "event": "100 M FREESTYLE WOMEN (double entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "CON",
+      "bronze": ""
+    },
+    {
+      "id": "R095",
+      "event": "Swimming 50 M Freestyle- Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CIHT",
+      "silver": "CON",
+      "bronze": "CITEC"
+    },
+    {
+      "id": "R096",
+      "event": "100 M BACKSTROKE WOMEN (double entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "CON",
+      "bronze": ""
+    },
+    {
+      "id": "R097",
+      "event": "100 M BREAST STROKE WOMEN (double entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "CON",
+      "bronze": ""
+    },
+    {
+      "id": "R098",
+      "event": "Swimming 100 M Breast Stroke - Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R099",
+      "event": "Swimming 50 M Freestyle- Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CIHT",
+      "bronze": ""
+    },
+    {
+      "id": "R100",
+      "event": "100 M FREESTYLE MEN (double entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "CON",
+      "bronze": ""
+    },
+    {
+      "id": "R101",
+      "event": "Swimming 100 M Freestyle- Men",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "",
+      "bronze": "CITEC"
+    },
+    {
+      "id": "R102",
+      "event": "50 M FREESTYLE WOMEN (double entry)",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "",
+      "silver": "",
+      "bronze": "CON"
+    },
+    {
+      "id": "R103",
+      "event": "Swimming 100 M Freestyle- Women",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "",
+      "bronze": "COA"
+    },
+    {
+      "id": "R104",
+      "event": "Swimming Relay 4x50 - Men",
+      "venue": "",
+      "eq": [
+        4,
+        4,
+        4
+      ],
+      "gold": "CON",
+      "silver": "CITEC",
+      "bronze": ""
+    },
+    {
+      "id": "R105",
+      "event": "Swimming Relay 4x50 - Women",
+      "venue": "",
+      "eq": [
+        4,
+        4,
+        4
+      ],
+      "gold": "CON",
+      "silver": "CIHT",
+      "bronze": "COA"
+    },
+    {
+      "id": "R106",
+      "event": "Script Writing",
+      "venue": "",
+      "eq": [
+        1,
+        1,
+        1
+      ],
+      "gold": "CON",
+      "silver": "CAS",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R107",
+      "event": "Video Spoofing",
+      "venue": "",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "CORE",
+      "silver": "CEnTech",
+      "bronze": "CIHT"
+    },
+    {
+      "id": "R108",
+      "event": "Departmental Shirt Competition",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "CAS",
+      "silver": "CON",
+      "bronze": "CEnTech"
+    },
+    {
+      "id": "R109",
+      "event": "Emblem Competition",
+      "venue": "FSUU Main Gym",
+      "eq": [
+        5,
+        5,
+        5
+      ],
+      "gold": "CIHT",
+      "silver": "CON",
+      "bronze": "COA"
+    }
+  ]
+}

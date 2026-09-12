@@ -1,11 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { SOURCE_URL, getCollegeInfo } from '@/types/leaderboard'
-import { useLeaderboard, relativeTime } from '@/hooks/use-leaderboard'
+import { useLeaderboard } from '@/hooks/use-leaderboard'
 import { ChampionPodium } from './champion-podium'
 import { LeaderboardTable } from './leaderboard-table'
 import { SkeletonLoader } from './skeleton-loader'
+import { Confetti } from './confetti'
+import { MusicPlayer } from './music-player'
 
 export function Leaderboard() {
   const {
@@ -13,45 +14,24 @@ export function Leaderboard() {
     topThree,
     results,
     loading,
-    syncing,
     error,
-    updatedAt,
-    stale,
     reload,
   } = useLeaderboard()
 
-  const [timeLabel, setTimeLabel] = useState(() => relativeTime(updatedAt))
-  const [absoluteTime, setAbsoluteTime] = useState<string>('')
-
-  useEffect(() => {
-    const updateTimes = () => {
-      setTimeLabel(relativeTime(updatedAt))
-      if (updatedAt) {
-        setAbsoluteTime(updatedAt.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' }))
-      } else {
-        setAbsoluteTime('')
-      }
-    }
-
-    updateTimes()
-    const tick = window.setInterval(updateTimes, 1000)
-    return () => window.clearInterval(tick)
-  }, [updatedAt])
-
   return (
     <main className="scoreboard-shell">
+      {/* ── Nonstop Celebratory Falling Confetti ─────────── */}
+      <Confetti />
+
+      {/* ── Automatic Background Soundtrack Player ───────── */}
+      <MusicPlayer />
+
       {/* ── Minimal Brand Header ─────────────────────────── */}
       <header className="minimal-brand-header">
         <div className="top-right-status">
-          {stale ? (
-            <span className="live-pill delayed-pill" aria-label="Data updates delayed">
-              <i className="live-indicator delayed-indicator" /> Delayed
-            </span>
-          ) : (
-            <span className="live-pill" aria-label="Live updates active">
-              <i className="live-indicator" /> Live
-            </span>
-          )}
+          <span className="live-pill final-pill" aria-label="Official Final Results">
+            <span className="final-trophy-icon" aria-hidden="true">🏆</span> Final Results
+          </span>
         </div>
 
         <a
@@ -70,6 +50,11 @@ export function Leaderboard() {
           />
         </a>
         <h1 className="minimal-brand-caption">The Urian Publication Special Coverage</h1>
+
+        {/* ── Prominent Final Medal Tally Championship Title ── */}
+        <div className="final-tally-title-wrap">
+          <h2 className="final-tally-title">FINAL MEDAL TALLY</h2>
+        </div>
       </header>
 
       {/* ── Standing Podium Section ──────────────────────── */}
@@ -79,8 +64,8 @@ export function Leaderboard() {
       <section className="leaderboard-card" aria-labelledby="standings-title">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Standings</p>
-            <h2 id="standings-title">College Leaderboard</h2>
+            <p className="eyebrow">Official Final Standings</p>
+            <h2 id="standings-title">Final Medal Tally</h2>
           </div>
         </div>
 
@@ -89,7 +74,7 @@ export function Leaderboard() {
         ) : error ? (
           <div className="error-state" role="alert">
             <strong>Scoreboard unavailable</strong>
-            <p>Could not read the latest tally from the source sheet.</p>
+            <p>Could not read the final tally from the source sheet.</p>
             <div className="error-actions">
               <button onClick={reload}>Try again</button>
               <a href={SOURCE_URL} target="_blank" rel="noreferrer">
@@ -136,16 +121,7 @@ export function Leaderboard() {
             </a>
           </span>
           <span aria-live="polite">
-            {syncing ? (
-              <>
-                <i className="syncing-dot" /> Syncing…
-              </>
-            ) : (
-              <>
-                Updated {timeLabel}
-                {absoluteTime && <span className="footer-clock-label"> · As of {absoluteTime}</span>}
-              </>
-            )}
+            Official Final Results · 125th University Days
           </span>
         </div>
       </footer>

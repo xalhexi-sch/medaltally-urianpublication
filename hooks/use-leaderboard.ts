@@ -6,9 +6,8 @@ import {
   type EventResult,
   type ApiPayload,
   API_URL,
-  POLL_INTERVAL,
-  STALE_THRESHOLD,
 } from '@/types/leaderboard'
+import finalData from '@/data/final-tally.json'
 
 // ── Normalisers ────────────────────────────────────────────
 
@@ -41,85 +40,49 @@ function normaliseResults(input: unknown): EventResult[] {
   })
 }
 
-// ── Data fetcher ───────────────────────────────────────────
-
-async function fetchScores(signal: AbortSignal) {
-  const response = await fetch(API_URL, {
-    signal,
-    cache: 'no-store',
-    headers: { Accept: 'application/json' },
-  })
-  if (!response.ok) throw new Error('The scoreboard is temporarily unavailable.')
-  const payload = (await response.json()) as ApiPayload
-  return { rows: normaliseTally(payload.tally), results: normaliseResults(payload.results) }
-}
+const initialRows = normaliseTally(finalData.tally)
+const initialResults = normaliseResults(finalData.results)
 
 // ── Relative time helper ───────────────────────────────────
 
 export function relativeTime(date: Date | null): string {
-  if (!date) return 'waiting for first sync'
-  const seconds = Math.floor((Date.now() - date.getTime()) / 1000)
-  if (seconds < 10) return 'just now'
-  if (seconds < 60) return `${seconds}s ago`
-  const minutes = Math.floor(seconds / 60)
-  if (minutes < 60) return `${minutes}m ago`
-  return date.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+  if (!date) return 'official final'
+  return 'official final'
 }
 
 // ── Hook ───────────────────────────────────────────────────
 
 export function useLeaderboard() {
-  const [rows, setRows] = useState<MedalRow[]>([])
-  const [results, setResults] = useState<EventResult[]>([])
-  const [loading, setLoading] = useState(true)
+  const [rows, setRows] = useState<MedalRow[]>(initialRows)
+  const [results, setResults] = useState<EventResult[]>(initialResults)
+  const [loading, setLoading] = useState(false)
   const [syncing, setSyncing] = useState(false)
   const [error, setError] = useState('')
-  const [updatedAt, setUpdatedAt] = useState<Date | null>(null)
-  const [stale, setStale] = useState(false)
+  const [updatedAt] = useState<Date | null>(() => new Date())
+  const [stale] = useState(false)
 
-  const hashRef = useRef('')
   const mounted = useRef(true)
-  const requestActive = useRef(false)
 
-  // ── Load data ─────────────────────────────────────────
+  // ── Reload data (for manual refresh if triggered) ─────────
 
-  const load = useCallback(async (initial = false) => {
-    if (requestActive.current) return
-    requestActive.current = true
-    if (!initial) setSyncing(true)
-
+  const load = useCallback(async () => {
+    setSyncing(true)
     try {
-      let next: Awaited<ReturnType<typeof fetchScores>> | null = null
-
-      for (let attempt = 0; attempt < (initial ? 3 : 1); attempt += 1) {
-        try {
-          const controller = new AbortController()
-          const timeout = window.setTimeout(() => controller.abort(), 10_000)
-          next = await fetchScores(controller.signal)
-          window.clearTimeout(timeout)
-          break
-        } catch {
-          if (attempt === (initial ? 2 : 0))
-            throw new Error('The scoreboard is temporarily unavailable.')
-        }
+      const res = await fetch(API_URL, { headers: { Accept: 'application/json' } })
+      if (!res.ok) throw new Error('Unavailable')
+      const payload = (await res.json()) as ApiPayload
+      if (mounted.current) {
+        setRows(normaliseTally(payload.tally))
+        setResults(normaliseResults(payload.results))
+        setError('')
       }
-
-      if (!mounted.current || !next) return
-
-      const nextHash = JSON.stringify(next)
-      if (nextHash !== hashRef.current) {
-        hashRef.current = nextHash
-        setRows(next.rows)
-        setResults(next.results)
-        setUpdatedAt(new Date())
-        setStale(false)
-      }
-      setError('')
     } catch {
-      if (mounted.current)
-        setError('The scoreboard is temporarily unavailable. Please try again.')
+      // Fallback to frozen data if fetch ever fails
+      if (mounted.current) {
+        setRows(initialRows)
+        setResults(initialResults)
+      }
     } finally {
-      requestActive.current = false
       if (mounted.current) {
         setLoading(false)
         setSyncing(false)
@@ -127,25 +90,12 @@ export function useLeaderboard() {
     }
   }, [])
 
-  // ── Polling + stale detection ─────────────────────────
-
   useEffect(() => {
     mounted.current = true
-    void load(true)
-    const interval = window.setInterval(() => void load(false), POLL_INTERVAL)
-
-    const staleCheck = window.setInterval(() => {
-      if (updatedAt && Date.now() - updatedAt.getTime() > STALE_THRESHOLD) {
-        setStale(true)
-      }
-    }, 30_000)
-
     return () => {
       mounted.current = false
-      window.clearInterval(interval)
-      window.clearInterval(staleCheck)
     }
-  }, [load, updatedAt])
+  }, [])
 
   // ── Sorted rows (Ranked by Gold -> Silver -> Bronze) ──
 
@@ -188,6 +138,6 @@ export function useLeaderboard() {
     error,
     updatedAt,
     stale,
-    reload: () => void load(true),
+    reload: () => void load(),
   }
 }
